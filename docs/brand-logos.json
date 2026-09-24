@@ -1,0 +1,27 @@
+[
+  {
+    "brand": "dior",
+    "source": "https://commons.wikimedia.org/wiki/File:Dior_Logo.svg",
+    "asset": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Dior_Logo.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+  },
+  {
+    "brand": "prada",
+    "source": "https://commons.wikimedia.org/wiki/File:Prada-Logo.svg",
+    "asset": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Prada-Logo.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+  },
+  {
+    "brand": "valentino",
+    "source": "https://commons.wikimedia.org/wiki/File:Valentino_logo.svg",
+    "asset": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Valentino_logo.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+  },
+  {
+    "brand": "ysl",
+    "source": "https://commons.wikimedia.org/wiki/File:Saint_Laurent_logo.svg",
+    "asset": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Saint_Laurent_logo.svg"
+  },
+  {
+    "brand": "chanel",
+    "source": "https://commons.wikimedia.org/wiki/File:Chanel_logo.svg",
+    "asset": "https://upload.wikimedia.org/wikipedia/commons/3/35/Chanel_logo.svg"
+  }
+]

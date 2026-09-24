@@ -1,0 +1,2028 @@
+{
+  "/images/hero-gold-splash.png": {
+    "width": 1672,
+    "height": 941,
+    "variants": [
+      {
+        "src": "/optimized/hero-gold-splash-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/optimized/hero-gold-splash-1440.webp",
+        "width": 1440
+      },
+      {
+        "src": "/optimized/hero-gold-splash-1672.webp",
+        "width": 1672
+      }
+    ]
+  },
+  "/images/hero-rose.png": {
+    "width": 1672,
+    "height": 941,
+    "variants": [
+      {
+        "src": "/optimized/hero-rose-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/optimized/hero-rose-1440.webp",
+        "width": 1440
+      },
+      {
+        "src": "/optimized/hero-rose-1672.webp",
+        "width": 1672
+      }
+    ]
+  },
+  "/images/hero-soluna-signature.webp": {
+    "width": 1672,
+    "height": 941,
+    "variants": [
+      {
+        "src": "/optimized/hero-soluna-signature-768.webp",
+        "width": 768
+      },
+      {
+        "src": "/optimized/hero-soluna-signature-1440.webp",
+        "width": 1440
+      },
+      {
+        "src": "/optimized/hero-soluna-signature-1672.webp",
+        "width": 1672
+      }
+    ]
+  },
+  "/perfumes/212-nyc.png": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/212-nyc-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/212-nyc-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/212-nyc-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/212-vip-rose.png": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/212-vip-rose-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/212-vip-rose-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/212-vip-rose-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/acqua.jpg": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/acqua-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/acqua-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/acqua-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/afnan-9pm-elixir.png": {
+    "width": 2000,
+    "height": 2000,
+    "variants": [
+      {
+        "src": "/optimized/afnan-9pm-elixir-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/afnan-9pm-elixir-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/afnan-9pm-elixir-960.webp",
+        "width": 960
+      }
+    ]
+  },
+  "/perfumes/armaf-odyssey-homme-white-edition.jpg": {
+    "width": 1600,
+    "height": 1600,
+    "variants": [
+      {
+        "src": "/optimized/armaf-odyssey-homme-white-edition-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/armaf-odyssey-homme-white-edition-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/armaf-odyssey-homme-white-edition-960.webp",
+        "width": 960
+      }
+    ]
+  },
+  "/perfumes/black-opium.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/black-opium-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/black-opium-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/bleu-hq.jpg": {
+    "width": 2112,
+    "height": 2112,
+    "variants": [
+      {
+        "src": "/optimized/bleu-hq-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/bleu-hq-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/bleu-hq-960.webp",
+        "width": 960
+      }
+    ]
+  },
+  "/perfumes/bloom.jpg": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/bloom-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/bloom-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/bloom-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/born-in-roma-green-stravaganza.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/born-in-roma-green-stravaganza-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/born-in-roma-green-stravaganza-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/born-in-roma-intense.webp": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/born-in-roma-intense-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/born-in-roma-intense-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/bright-crystal.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/bright-crystal-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/bright-crystal-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/candy.png": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/candy-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/candy-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/candy-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/chance-eau-fraiche.jpg": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/chance-eau-fraiche-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/chance-eau-fraiche-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/chance-eau-fraiche-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/chance-eau-tendre.jpg": {
+    "width": 700,
+    "height": 796,
+    "variants": [
+      {
+        "src": "/optimized/chance-eau-tendre-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/chance-eau-tendre-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/chance-eau-tendre-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/chanel-5.jpg": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/chanel-5-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/chanel-5-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/chanel-5-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/coco-mademoiselle.jpg": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/coco-mademoiselle-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/coco-mademoiselle-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/coco-mademoiselle-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/crystal-noir.png": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/crystal-noir-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/crystal-noir-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/crystal-noir-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/dior-addict.png": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/dior-addict-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/dior-addict-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/dior-addict-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/donna-born-in-roma.png": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/donna-born-in-roma-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/donna-born-in-roma-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/donna-born-in-roma-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/donna.jpg": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/donna-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/donna-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/donna-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/dylan-blue-pour-femme.jpg": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/dylan-blue-pour-femme-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/dylan-blue-pour-femme-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/dylan-purple.jpg": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/dylan-purple-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/dylan-purple-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/flora-gorgeous-gardenia.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/flora-gorgeous-gardenia-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/flora-gorgeous-gardenia-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/flora-gorgeous-magnolia.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/flora-gorgeous-magnolia-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/flora-gorgeous-magnolia-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/good-girl-blush.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/good-girl-blush-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/good-girl-blush-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/good-girl.jpg": {
+    "width": 1000,
+    "height": 1000,
+    "variants": [
+      {
+        "src": "/optimized/good-girl-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/good-girl-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/good-girl-960.webp",
+        "width": 960
+      }
+    ]
+  },
+  "/perfumes/guilty-pour-femme.png": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/guilty-pour-femme-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/guilty-pour-femme-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/guilty-pour-femme-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/hypnotic-poison.png": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/hypnotic-poison-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/hypnotic-poison-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/hypnotic-poison-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/idole-nectar.png": {
+    "width": 776,
+    "height": 994,
+    "variants": [
+      {
+        "src": "/optimized/idole-nectar-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/idole-nectar-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/idole-nectar-776.webp",
+        "width": 776
+      }
+    ]
+  },
+  "/perfumes/idole.png": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/idole-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/idole-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/idole-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/jadore.png": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/jadore-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/jadore-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/jadore-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/la-vie-est-belle-extrait.jpg": {
+    "width": 750,
+    "height": 1000,
+    "variants": [
+      {
+        "src": "/optimized/la-vie-est-belle-extrait-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/la-vie-est-belle-extrait-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/la-vie-est-belle-extrait-750.webp",
+        "width": 750
+      }
+    ]
+  },
+  "/perfumes/la-vie-est-belle.png": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/la-vie-est-belle-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/la-vie-est-belle-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/la-vie-est-belle-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/libre-intense.png": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/libre-intense-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/libre-intense-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/libre-intense-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/libre.png": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/libre-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/libre-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/libre-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/men-arabes-afnan-supremacy-not-only-intense.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/men-arabes-afnan-supremacy-not-only-intense-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-arabes-afnan-supremacy-not-only-intense-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/men-arabes-afnan-turathi-blue.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/men-arabes-afnan-turathi-blue-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-arabes-afnan-turathi-blue-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/men-arabes-armaf-club-de-nuit-intense-man-limites.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/optimized/men-arabes-armaf-club-de-nuit-intense-man-limites-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-arabes-armaf-club-de-nuit-intense-man-limites-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/men-arabes-armaf-club-de-nuit-intense-man-limites-960.webp",
+        "width": 960
+      }
+    ]
+  },
+  "/perfumes/men-arabes-lattafa-asad.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/men-arabes-lattafa-asad-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-arabes-lattafa-asad-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/men-arabes-lattafa-khamrah.png": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/men-arabes-lattafa-khamrah-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-arabes-lattafa-khamrah-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/men-arabes-lattafa-khamrah-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/men-arabes-lattafa-maahir-legacy.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/men-arabes-lattafa-maahir-legacy-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-arabes-lattafa-maahir-legacy-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/men-arabes-maison-alhambra-jean-lowe-immortal.png": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/men-arabes-maison-alhambra-jean-lowe-immortal-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-arabes-maison-alhambra-jean-lowe-immortal-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/men-arabes-maison-alhambra-jean-lowe-immortal-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/men-azzaro-chrome-extreme.png": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/men-azzaro-chrome-extreme-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-azzaro-chrome-extreme-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/men-azzaro-chrome-extreme-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/men-azzaro-the-most-wanted-edp.png": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/men-azzaro-the-most-wanted-edp-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-azzaro-the-most-wanted-edp-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/men-azzaro-the-most-wanted-edp-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/men-azzaro-the-most-wanted-parfum.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/men-azzaro-the-most-wanted-parfum-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-azzaro-the-most-wanted-parfum-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/men-azzaro-wanted-by-night.png": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/men-azzaro-wanted-by-night-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-azzaro-wanted-by-night-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/men-azzaro-wanted-by-night-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/men-azzaro-wanted-edt.png": {
+    "width": 600,
+    "height": 632,
+    "variants": [
+      {
+        "src": "/optimized/men-azzaro-wanted-edt-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-azzaro-wanted-edt-600.webp",
+        "width": 600
+      }
+    ]
+  },
+  "/perfumes/men-carolina-herrera-212-nyc-men.jpg": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/men-carolina-herrera-212-nyc-men-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-carolina-herrera-212-nyc-men-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/men-carolina-herrera-212-nyc-men-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/men-carolina-herrera-212-vip-black-edp.png": {
+    "width": 473,
+    "height": 955,
+    "variants": [
+      {
+        "src": "/optimized/men-carolina-herrera-212-vip-black-edp-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-carolina-herrera-212-vip-black-edp-473.webp",
+        "width": 473
+      }
+    ]
+  },
+  "/perfumes/men-carolina-herrera-bad-boy-cobalt-edp.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/men-carolina-herrera-bad-boy-cobalt-edp-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-carolina-herrera-bad-boy-cobalt-edp-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/men-carolina-herrera-bad-boy-elixir.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/men-carolina-herrera-bad-boy-elixir-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-carolina-herrera-bad-boy-elixir-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/men-carolina-herrera-bad-boy-extreme.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/men-carolina-herrera-bad-boy-extreme-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-carolina-herrera-bad-boy-extreme-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/men-carolina-herrera-bad-boy-le-parfum.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/men-carolina-herrera-bad-boy-le-parfum-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-carolina-herrera-bad-boy-le-parfum-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/men-carolina-herrera-ch-men-edt.jpg": {
+    "width": 900,
+    "height": 900,
+    "variants": [
+      {
+        "src": "/optimized/men-carolina-herrera-ch-men-edt-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-carolina-herrera-ch-men-edt-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/men-carolina-herrera-ch-men-edt-900.webp",
+        "width": 900
+      }
+    ]
+  },
+  "/perfumes/men-chanel-allure-homme-edition-blanche.jpg": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/men-chanel-allure-homme-edition-blanche-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-chanel-allure-homme-edition-blanche-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/men-chanel-allure-homme-edition-blanche-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/men-chanel-allure-homme-sport-eau-extreme.jpg": {
+    "width": 594,
+    "height": 580,
+    "variants": [
+      {
+        "src": "/optimized/men-chanel-allure-homme-sport-eau-extreme-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-chanel-allure-homme-sport-eau-extreme-594.webp",
+        "width": 594
+      }
+    ]
+  },
+  "/perfumes/men-chanel-bleu-de-chanel-edp.png": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/men-chanel-bleu-de-chanel-edp-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-chanel-bleu-de-chanel-edp-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/men-chanel-bleu-de-chanel-edp-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/men-chanel-platinum-egoiste.jpg": {
+    "width": 700,
+    "height": 414,
+    "variants": [
+      {
+        "src": "/optimized/men-chanel-platinum-egoiste-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-chanel-platinum-egoiste-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/men-chanel-platinum-egoiste-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/men-dior-homme-intense.jpg": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/men-dior-homme-intense-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-dior-homme-intense-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/men-dior-homme-intense-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/men-dior-homme-parfum.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/men-dior-homme-parfum-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-dior-homme-parfum-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/men-dior-sauvage-edp.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/men-dior-sauvage-edp-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-dior-sauvage-edp-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/men-dior-sauvage-elixir.png": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/men-dior-sauvage-elixir-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-dior-sauvage-elixir-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/men-dior-sauvage-elixir-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/men-dior-sauvage-parfum.png": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/men-dior-sauvage-parfum-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-dior-sauvage-parfum-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/men-dior-sauvage-parfum-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/men-dolce-gabbana-k-edp.png": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/men-dolce-gabbana-k-edp-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-dolce-gabbana-k-edp-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/men-dolce-gabbana-k-edp-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/men-dolce-gabbana-k-parfum.jpg": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/men-dolce-gabbana-k-parfum-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-dolce-gabbana-k-parfum-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/men-dolce-gabbana-light-blue-forever-parfum.jpg": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/men-dolce-gabbana-light-blue-forever-parfum-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-dolce-gabbana-light-blue-forever-parfum-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/men-dolce-gabbana-light-blue-forever-parfum-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/men-dolce-gabbana-light-blue-intense-pour-homme.jpg": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/men-dolce-gabbana-light-blue-intense-pour-homme-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-dolce-gabbana-light-blue-intense-pour-homme-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/men-dolce-gabbana-light-blue-intense-pour-homme-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/men-dolce-gabbana-light-blue-summer-vibez.png": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/men-dolce-gabbana-light-blue-summer-vibez-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-dolce-gabbana-light-blue-summer-vibez-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/men-dolce-gabbana-light-blue-summer-vibez-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/men-dolce-gabbana-pour-homme.jpg": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/men-dolce-gabbana-pour-homme-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-dolce-gabbana-pour-homme-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/men-dolce-gabbana-pour-homme-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/men-dolce-gabbana-the-one-eau-de-parfum.jpg": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/men-dolce-gabbana-the-one-eau-de-parfum-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-dolce-gabbana-the-one-eau-de-parfum-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/men-dolce-gabbana-the-one-eau-de-parfum-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/men-dolce-gabbana-the-one-gold-for-men.png": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/men-dolce-gabbana-the-one-gold-for-men-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-dolce-gabbana-the-one-gold-for-men-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/men-dolce-gabbana-the-one-gold-for-men-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/men-giorgio-armani-acqua-di-gio-parfum.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/men-giorgio-armani-acqua-di-gio-parfum-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-giorgio-armani-acqua-di-gio-parfum-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/men-giorgio-armani-acqua-di-gio-profondo.jpg": {
+    "width": 700,
+    "height": 601,
+    "variants": [
+      {
+        "src": "/optimized/men-giorgio-armani-acqua-di-gio-profondo-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-giorgio-armani-acqua-di-gio-profondo-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/men-giorgio-armani-acqua-di-gio-profondo-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/men-giorgio-armani-armani-code-edp.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/men-giorgio-armani-armani-code-edp-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-giorgio-armani-armani-code-edp-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/men-giorgio-armani-armani-code-parfum.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/men-giorgio-armani-armani-code-parfum-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-giorgio-armani-armani-code-parfum-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/men-giorgio-armani-stronger-with-you-absolutely.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/men-giorgio-armani-stronger-with-you-absolutely-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-giorgio-armani-stronger-with-you-absolutely-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/men-giorgio-armani-stronger-with-you-intensely.png": {
+    "width": 600,
+    "height": 600,
+    "variants": [
+      {
+        "src": "/optimized/men-giorgio-armani-stronger-with-you-intensely-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-giorgio-armani-stronger-with-you-intensely-600.webp",
+        "width": 600
+      }
+    ]
+  },
+  "/perfumes/men-giorgio-armani-stronger-with-you-parfum.png": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/men-giorgio-armani-stronger-with-you-parfum-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-giorgio-armani-stronger-with-you-parfum-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/men-giorgio-armani-stronger-with-you-parfum-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/men-jean-paul-gaultier-le-beau-edp.jpg": {
+    "width": 700,
+    "height": 911,
+    "variants": [
+      {
+        "src": "/optimized/men-jean-paul-gaultier-le-beau-edp-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-jean-paul-gaultier-le-beau-edp-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/men-jean-paul-gaultier-le-beau-edp-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/men-jean-paul-gaultier-le-beau-le-parfum.jpg": {
+    "width": 480,
+    "height": 624,
+    "variants": [
+      {
+        "src": "/optimized/men-jean-paul-gaultier-le-beau-le-parfum-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-jean-paul-gaultier-le-beau-le-parfum-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/men-jean-paul-gaultier-le-beau-paradise-garden.jpg": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/men-jean-paul-gaultier-le-beau-paradise-garden-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-jean-paul-gaultier-le-beau-paradise-garden-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/men-jean-paul-gaultier-le-male-edt.jpg": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/men-jean-paul-gaultier-le-male-edt-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-jean-paul-gaultier-le-male-edt-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/men-jean-paul-gaultier-le-male-edt-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/men-jean-paul-gaultier-le-male-elixir.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/men-jean-paul-gaultier-le-male-elixir-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-jean-paul-gaultier-le-male-elixir-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/men-jean-paul-gaultier-le-male-le-parfum.jpg": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/men-jean-paul-gaultier-le-male-le-parfum-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-jean-paul-gaultier-le-male-le-parfum-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/men-jean-paul-gaultier-le-male-le-parfum-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/men-jean-paul-gaultier-scandal-pour-homme-le-parfum.jpg": {
+    "width": 480,
+    "height": 481,
+    "variants": [
+      {
+        "src": "/optimized/men-jean-paul-gaultier-scandal-pour-homme-le-parfum-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-jean-paul-gaultier-scandal-pour-homme-le-parfum-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/men-jean-paul-gaultier-ultra-male.jpg": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/men-jean-paul-gaultier-ultra-male-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-jean-paul-gaultier-ultra-male-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/men-jean-paul-gaultier-ultra-male-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/men-montblanc-explorer-platinum.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/men-montblanc-explorer-platinum-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-montblanc-explorer-platinum-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/men-montblanc-explorer.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/men-montblanc-explorer-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-montblanc-explorer-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/men-montblanc-individuel.jpg": {
+    "width": 600,
+    "height": 600,
+    "variants": [
+      {
+        "src": "/optimized/men-montblanc-individuel-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-montblanc-individuel-600.webp",
+        "width": 600
+      }
+    ]
+  },
+  "/perfumes/men-montblanc-legend-edp.png": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/men-montblanc-legend-edp-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-montblanc-legend-edp-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/men-montblanc-legend-edp-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/men-montblanc-legend-spirit.jpg": {
+    "width": 600,
+    "height": 600,
+    "variants": [
+      {
+        "src": "/optimized/men-montblanc-legend-spirit-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-montblanc-legend-spirit-600.webp",
+        "width": 600
+      }
+    ]
+  },
+  "/perfumes/men-odyssey-aqua.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/men-odyssey-aqua-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-odyssey-aqua-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/men-odyssey-mandarin-sky.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/men-odyssey-mandarin-sky-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-odyssey-mandarin-sky-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/men-odyssey-mega.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/men-odyssey-mega-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-odyssey-mega-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/men-odyssey-wild-one.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/men-odyssey-wild-one-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-odyssey-wild-one-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/men-paco-rabanne-invictus-aqua.jpg": {
+    "width": 612,
+    "height": 612,
+    "variants": [
+      {
+        "src": "/optimized/men-paco-rabanne-invictus-aqua-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-paco-rabanne-invictus-aqua-612.webp",
+        "width": 612
+      }
+    ]
+  },
+  "/perfumes/men-paco-rabanne-invictus-parfum.png": {
+    "width": 480,
+    "height": 384,
+    "variants": [
+      {
+        "src": "/optimized/men-paco-rabanne-invictus-parfum-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-paco-rabanne-invictus-parfum-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/men-paco-rabanne-invictus-victory-elixir.jpg": {
+    "width": 480,
+    "height": 298,
+    "variants": [
+      {
+        "src": "/optimized/men-paco-rabanne-invictus-victory-elixir-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-paco-rabanne-invictus-victory-elixir-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/men-paco-rabanne-one-million-elixir.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/men-paco-rabanne-one-million-elixir-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-paco-rabanne-one-million-elixir-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/men-paco-rabanne-one-million-lucky.jpg": {
+    "width": 560,
+    "height": 1225,
+    "variants": [
+      {
+        "src": "/optimized/men-paco-rabanne-one-million-lucky-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-paco-rabanne-one-million-lucky-560.webp",
+        "width": 560
+      }
+    ]
+  },
+  "/perfumes/men-paco-rabanne-one-million-parfum.png": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/men-paco-rabanne-one-million-parfum-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-paco-rabanne-one-million-parfum-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/men-paco-rabanne-one-million-parfum-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/men-paco-rabanne-phantom-parfum.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/men-paco-rabanne-phantom-parfum-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-paco-rabanne-phantom-parfum-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/men-prada-l-homme-intense.jpg": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/men-prada-l-homme-intense-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-prada-l-homme-intense-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/men-prada-l-homme-intense-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/men-prada-l-homme.jpg": {
+    "width": 700,
+    "height": 708,
+    "variants": [
+      {
+        "src": "/optimized/men-prada-l-homme-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-prada-l-homme-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/men-prada-l-homme-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/men-prada-luna-rossa-black.jpg": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/men-prada-luna-rossa-black-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-prada-luna-rossa-black-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/men-prada-luna-rossa-carbon.jpg": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/men-prada-luna-rossa-carbon-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-prada-luna-rossa-carbon-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/men-prada-luna-rossa-carbon-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/men-prada-luna-rossa-ocean-edp.jpg": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/men-prada-luna-rossa-ocean-edp-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-prada-luna-rossa-ocean-edp-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/men-valentino-uomo-born-in-roma-coral-fantasy.png": {
+    "width": 480,
+    "height": 425,
+    "variants": [
+      {
+        "src": "/optimized/men-valentino-uomo-born-in-roma-coral-fantasy-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-valentino-uomo-born-in-roma-coral-fantasy-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/men-valentino-uomo-born-in-roma-edt.png": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/men-valentino-uomo-born-in-roma-edt-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-valentino-uomo-born-in-roma-edt-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/men-valentino-uomo-born-in-roma-edt-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/men-valentino-uomo-born-in-roma-intense.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/men-valentino-uomo-born-in-roma-intense-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-valentino-uomo-born-in-roma-intense-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/men-valentino-uomo-intense.png": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/men-valentino-uomo-intense-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-valentino-uomo-intense-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/men-valentino-uomo-intense-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/men-valentino-uomo-yellow-dream.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/men-valentino-uomo-yellow-dream-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/men-valentino-uomo-yellow-dream-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/miss-dior.png": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/miss-dior-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/miss-dior-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/miss-dior-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/mon-paris.png": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/mon-paris-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/mon-paris-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/mon-paris-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/my-way-intense.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/my-way-intense-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/my-way-intense-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/my-way.png": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/my-way-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/my-way-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/my-way-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/paradoxe-intense.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/paradoxe-intense-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/paradoxe-intense-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/paradoxe-virtual-flower.png": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/paradoxe-virtual-flower-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/paradoxe-virtual-flower-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/paradoxe.jpg": {
+    "width": 480,
+    "height": 480,
+    "variants": [
+      {
+        "src": "/optimized/paradoxe-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/paradoxe-480.webp",
+        "width": 480
+      }
+    ]
+  },
+  "/perfumes/sauvage.png": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/sauvage-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/sauvage-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/sauvage-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/si-passione.jpg": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/si-passione-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/si-passione-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/si-passione-700.webp",
+        "width": 700
+      }
+    ]
+  },
+  "/perfumes/si.png": {
+    "width": 700,
+    "height": 700,
+    "variants": [
+      {
+        "src": "/optimized/si-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/optimized/si-640.webp",
+        "width": 640
+      },
+      {
+        "src": "/optimized/si-700.webp",
+        "width": 700
+      }
+    ]
+  }
+}

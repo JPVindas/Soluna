@@ -1,0 +1,43 @@
+/* Collection pages share the Soluna palette, with a quiet accent per category. */
+.collection-breadcrumb{display:flex;align-items:center;gap:12px;font-size:12px;line-height:1.5;margin-bottom:30px;color:#b5b6ad}
+.collection-breadcrumb a:hover{color:#e9cca0;text-decoration:underline}
+.collection-editorial-copy{max-width:60%}
+.collection-kicker{display:block;font-size:11px;line-height:1.5;letter-spacing:2.5px;text-transform:uppercase;color:#8f744d;margin:0 0 12px}
+.collection-intro .collection-breadcrumb{justify-content:center;margin-bottom:24px}.collection-intro .collection-kicker{margin-top:0}
+.catalog-toolbar{padding-block:18px;margin:0 0 24px;border-bottom:1px solid #e8e1d6;flex-wrap:wrap}
+.catalog-toolbar>p{color:#60574a;font-size:14px}
+.catalog-results{scroll-margin-top:24px}.catalog-results:focus{outline:none}.catalog-results:focus-visible{outline:1px solid #bda57f;outline-offset:8px}
+.all-catalog .product{display:flex;flex-direction:column;text-align:left;align-items:stretch;padding:20px;background:#fff;border-color:#e9e3da;border-radius:3px}
+.all-catalog .product-photo-button{height:210px;max-width:none;margin:0 0 18px}.all-catalog .product-image{width:100%;height:100%;padding:12px}
+.all-catalog .product-image img{width:100%;height:100%;object-fit:contain}
+.product .product-brand{display:block;font-size:11px;line-height:1.5;letter-spacing:1.2px;text-transform:uppercase;color:#8c744f;margin:0 0 8px}
+.all-catalog .product h3{font:400 19px/1.4 Georgia,serif;min-height:54px;margin:0 0 10px}.all-catalog .product h3 button{text-align:left}
+.all-catalog .product p{font-size:12px;line-height:1.5;text-align:left;margin:0 0 9px}.all-catalog .product .concentration{min-height:36px}
+.product .price-on-request,.home-bestsellers .product .price-on-request{font:500 14px/1.5 Arial,Helvetica,sans-serif;color:#5e503d;margin:4px 0 16px}
+.all-catalog .product .add-button{margin-top:auto;min-height:44px;padding:10px 7px;font-size:12px;line-height:1.4;white-space:normal}
+.all-catalog .product{position:relative}.all-catalog .featured-label{position:absolute;left:14px;top:14px;z-index:1;align-self:flex-start;font-size:11px;margin-bottom:0}
+.detail-dialog .detail-price{font-size:17px;font-weight:500;color:#8a704b}
+.bestsellers-showcase .product{border-top:2px solid #ccb081;background:linear-gradient(180deg,#faf7f0,#fff 160px)}
+.bestsellers-showcase .product-image{mix-blend-mode:multiply}
+.bestsellers-showcase .bestseller-badge{align-self:flex-start;background:#eee4d2;color:#795c30;font-size:10px;letter-spacing:1px;border-radius:2px;margin-bottom:16px}
+.bestsellers-showcase .product:hover{border-color:#b3915c;box-shadow:0 12px 26px #4e391012}
+.home-bestsellers.bestsellers-showcase{padding-block:40px 44px}
+.home-bestsellers .catalog-heading{display:grid;grid-template-columns:1fr auto;gap:6px 18px;align-items:end;margin-bottom:26px}
+.home-bestsellers .catalog-heading .collection-kicker{grid-column:1/-1;margin-bottom:4px}
+.home-bestsellers .catalog-heading .section-title{font-size:36px}.home-bestsellers .catalog-heading .view-all{font-size:13px;align-self:center}
+.catalog-pagination-wrap{border-top:1px solid #e5ddd0;margin-top:30px;padding-top:22px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.pagination-summary,.pagination-position{font-size:12px;line-height:1.5;color:#756752;margin:0}
+nav.catalog-pagination{display:flex;width:auto;max-width:100%;height:auto;min-height:0;margin:0;padding:0;border:0;background:transparent;gap:0;overflow:visible;justify-content:center}
+.catalog-pagination ul{display:flex;align-items:center;gap:5px;list-style:none;margin:0;padding:0}
+.catalog-pagination button{display:grid;place-items:center;width:40px;height:40px;border:1px solid #e0d7c9;background:#fff;color:#423b30;font-size:14px;border-radius:2px}
+.catalog-pagination button:hover:not(:disabled){background:#f2e8d8;border-color:#bfa57e;color:#211d17}
+.catalog-pagination button[aria-current=page]{background:#22251e;color:#f4dfba;border-color:#22251e}
+.catalog-pagination button:disabled{opacity:.35;cursor:default}.pagination-position{width:100%;text-align:right}
+.catalog-filters .filter-clear{margin-top:22px;min-height:36px;font-size:13px}
+.filter-live-results{font-size:14px;color:#746044;text-align:center;margin:12px 0 0}
+.filter-panel>.gold-button{min-height:44px}.filter-panel>.catalog-filters,.filter-panel>.filter-live-results{flex-shrink:0}
+.cart-bottom .cart-consultation-title{font:400 20px/1.35 Georgia,serif;color:#302a20;margin-top:0}
+@media(max-width:1100px){.all-catalog .product-photo-button{height:185px}.all-catalog .product{padding:14px}.all-catalog .product h3{font-size:17px}.catalog-pagination-wrap{justify-content:center}.pagination-summary,.pagination-position{width:100%;text-align:center}}
+@media(max-width:960px){.collection-editorial-copy{max-width:66%}.all-catalog .filtered-products{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.collection-breadcrumb{margin-bottom:24px;font-size:12px}.collection-editorial-copy{max-width:100%}.all-catalog .product{padding:12px}.all-catalog .product-photo-button{height:160px;margin-bottom:12px}.all-catalog .product-image{padding:4px}.all-catalog .product h3{font-size:16px;min-height:66px}.product .product-brand{font-size:10px;letter-spacing:.6px;min-height:30px}.product .price-on-request,.home-bestsellers .product .price-on-request{font-size:13px}.all-catalog .product .add-button{font-size:11px}.catalog-toolbar{gap:14px}.catalog-toolbar .collection-search{max-width:100%;width:100%;flex:1 1 100%}.catalog-toolbar .collection-search input{font-size:16px}.catalog-toolbar>p{font-size:13px}.catalog-toolbar>.mobile-filter-toggle{margin-left:auto;font-size:13px}.home-bestsellers .catalog-heading .section-title{font-size:30px}.home-bestsellers .catalog-heading .view-all{font-size:12px;max-width:125px;text-align:right}.home-bestsellers.bestsellers-showcase{padding-block:30px}.catalog-pagination .extra-page{display:none}.catalog-pagination-wrap{margin-top:24px;gap:12px}.catalog-pagination button{width:42px;height:42px}.bestsellers-showcase .bestseller-badge{font-size:9px;letter-spacing:.5px}.pagination-position{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.bestsellers-showcase .product,.all-catalog .product{transition:none}}

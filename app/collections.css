@@ -1,0 +1,110 @@
+/* Soluna collections: one editorial system with a quiet accent for each edit. */
+.masthead .brand>img{transform:translateZ(0)}
+.collection-hero{--ink:#302d28;--muted:#6a645a;--accent:#826a46;--surface:#eae4d8;position:relative;isolation:isolate;overflow:hidden;color:var(--ink);background:#f2eee7;border-bottom:1px solid #e3dccf}
+.collection-stage{position:relative;z-index:1;padding-top:22px;padding-bottom:18px}
+.collection-hero .collection-breadcrumb{color:var(--muted);margin-bottom:22px;font-size:12px}
+.collection-composition{min-height:370px;display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:50px}
+.collection-story{position:relative;z-index:2;padding:12px 0 30px;max-width:550px}
+.collection-hero .collection-kicker{display:flex;align-items:center;gap:12px;color:var(--accent);font-size:12px;letter-spacing:1.7px;line-height:1.6;margin:0 0 22px}
+.collection-kicker>span{height:1px;width:28px;background:currentColor;flex-shrink:0}
+.collection-hero h1{font-family:Georgia,'Times New Roman',serif;line-height:1.03;font-weight:400;letter-spacing:-2px;font-size:clamp(48px,5.5vw,78px);margin:0;color:var(--ink)}
+.collection-hero h1>span{display:block;font-size:.52em;font-weight:400;line-height:1.3;letter-spacing:-.7px;margin-bottom:5px}
+.collection-hero h1>em{display:block;color:var(--accent);font-style:italic;font-weight:400}
+.collection-story-description{font-size:16px;line-height:1.75;max-width:375px;margin:24px 0;color:var(--muted)}
+.collection-hero .collection-discover{min-height:46px;gap:20px;font-size:12px;padding:14px 23px}
+.collection-colophon{display:flex;align-items:center;justify-content:space-between;gap:16px;border-top:1px solid #bba88a40;padding-top:16px;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted)}
+.collection-colophon>span:last-child{display:flex;align-items:center;gap:12px}
+.collection-gallery{position:relative;min-width:0;display:flex;align-items:center;justify-content:center;gap:24px;padding:8px 0 34px}
+.editorial-fragrance{position:relative;border:1px solid #bba88a24;background:var(--surface);color:var(--ink);padding:19px;text-align:left;min-width:0;width:49%;max-width:245px;transition:transform .3s,box-shadow .3s;box-shadow:0 12px 32px #433e3008}
+.editorial-fragrance .product-image{mix-blend-mode:multiply;background:white;height:210px;aspect-ratio:auto}
+.editorial-fragrance .product-image img{width:100%;height:100%;object-fit:contain}
+.editorial-fragrance-caption{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--accent);line-height:1.5}
+.editorial-fragrance-name{display:block;font:400 16px/1.4 Georgia,serif;margin-top:14px}
+.editorial-fragrance-2{transform:translateY(24px);background:#faf7f0}
+.collection-geometry{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.collection-geometry i:first-child{position:absolute;width:370px;height:370px;border:1px solid #ab95742e;right:9%;top:50px;border-radius:50%}
+.collection-geometry i:nth-child(2){position:absolute;width:70px;height:1px;background:#ab957452;right:5%;top:65px}
+.collection-him{--ink:#303431;--muted:#626760;--accent:#85653d;--surface:#e4e1d7;background:linear-gradient(110deg,#f2efe8,#e8e8df)}
+.collection-him .collection-geometry i:first-child{border-radius:0;transform:rotate(-8deg);border-color:#6e776330;right:10%;width:330px;height:350px}
+.collection-him .editorial-fragrance-1{border-top:2px solid #9c8156}
+.collection-her{--ink:#302a27;--muted:#6c605a;--accent:#816347;--surface:#ede4d9;background:radial-gradient(ellipse at 75% 20%,#fff 0,transparent 62%),#f1ebe4}
+.collection-her .collection-geometry i:first-child{width:340px;height:420px;border-radius:50% 50% 0 0;transform:rotate(16deg);top:35px}
+.collection-her .editorial-fragrance-1{transform:rotate(-3deg)}
+.collection-her .editorial-fragrance-2{transform:rotate(3deg) translateY(24px)}
+.collection-her .collection-colophon>span:first-child{font:italic 16px/1.4 Georgia,serif;text-transform:none;letter-spacing:.2px}
+.collection-favourites{--ink:#382f25;--muted:#736651;--accent:#937245;--surface:#eee3d0;background:radial-gradient(ellipse at 75% 40%,#f8edcf70,transparent 65%),#f6f1e7}
+.collection-favourites .collection-geometry i:first-child{border-color:#a88a5035;width:380px;height:380px}
+.collection-favourites .collection-geometry i:nth-child(3){position:absolute;width:420px;height:420px;border:1px solid #a88a501c;right:7.5%;top:29px;border-radius:50%}
+.collection-favourites .editorial-fragrance{border-top:2px solid #b7955b}
+.collection-favourites .editorial-fragrance-caption{font-size:11px}
+.collection-catalogue{--ink:#302e29;--muted:#6b665b;--accent:#85724f;--surface:#e8e3d6;background:linear-gradient(120deg,#f8f6f0,#eee9df)}
+.collection-catalogue .collection-geometry i:first-child{border-radius:50% 50% 0 0;right:10%;height:400px}
+.collection-catalogue .editorial-fragrance-2{background:#f8f7f0}
+/* The existing product system is shared by every collection. */
+.collection-list-heading{display:flex;justify-content:space-between;gap:24px;align-items:end;padding:18px 0 5px}
+.collection-list-heading .collection-kicker{font-size:11px;letter-spacing:1.7px;margin-bottom:8px}
+.collection-list-heading h2{font:400 clamp(24px,2.3vw,32px)/1.2 Georgia,serif;letter-spacing:-.5px;margin:0}
+.collection-list-note{color:#84745d;font-size:12px;line-height:1.5;text-align:right}
+.product-photo-button{position:relative;overflow:hidden}
+.product-photo-button .product-image img{transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.product-discover{position:absolute;bottom:8px;left:50%;transform:translate(-50%,5px);display:flex;gap:9px;align-items:center;padding:8px 12px;background:#fcfaf4ef;color:#635039;border:1px solid #cfbea2;white-space:nowrap;font-size:11px;opacity:0;transition:opacity .2s,transform .2s;pointer-events:none}
+.product-photo-button:focus-visible .product-discover{opacity:1;transform:translate(-50%,0)}
+.product .add-button{display:flex;justify-content:center;align-items:center;gap:7px}
+.product .add-button.has-in-cart{background:#313c30;color:#f3e7d0}
+.product .add-button svg{flex-shrink:0}
+.bestsellers-showcase .bestseller-badge{display:flex;align-items:center;gap:7px;width:max-content}
+.collection-page.bestsellers-showcase .filtered-products{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.collection-page.bestsellers-showcase .product{padding:24px;background:linear-gradient(145deg,#faf6ed,#fff 65%)}
+.collection-page.bestsellers-showcase .product-photo-button{height:250px;margin-block:8px 22px}
+.collection-page.bestsellers-showcase .product h3{font-size:22px;min-height:62px}
+.collection-page.bestsellers-showcase .product:first-child{background:linear-gradient(145deg,#f0e8d8,#fff 70%);border-color:#c3a46f}
+.catalog:focus{outline:none}.catalog:focus-visible{outline:2px solid #b49974;outline-offset:-2px}
+@media(hover:hover) and (pointer:fine){
+ .editorial-fragrance:hover{transform:translateY(-4px);box-shadow:0 18px 32px #40372312;color:#30281c}
+ .editorial-fragrance-2:hover{transform:translateY(20px)}
+ .collection-her .editorial-fragrance-1:hover{transform:rotate(-2deg) translateY(-4px)}
+ .collection-her .editorial-fragrance-2:hover{transform:rotate(2deg) translateY(20px)}
+ .product:hover .product-image img{transform:scale(1.035)}
+ .product:hover .product-discover{opacity:1;transform:translate(-50%,0)}
+}
+@media(max-width:1100px){
+ .collection-composition{gap:30px}.editorial-fragrance{padding:15px}.editorial-fragrance .product-image{height:175px}.editorial-fragrance-name{font-size:14px}.collection-gallery{gap:18px}
+}
+@media(max-width:800px){
+ .collection-composition{gap:24px;min-height:340px}.collection-hero h1{font-size:53px}.collection-hero .collection-kicker{font-size:10px;letter-spacing:1.2px}.collection-story-description{font-size:15px;line-height:1.6}.collection-gallery{gap:14px}.editorial-fragrance{padding:12px}.editorial-fragrance .product-image{height:155px}.editorial-fragrance-caption{font-size:9px;letter-spacing:.3px}.editorial-fragrance-name{font-size:13px}.collection-hero .collection-discover{font-size:11px;padding-inline:17px}.collection-geometry i:first-child,.collection-favourites .collection-geometry i:first-child{width:280px;height:310px;right:3%}.collection-colophon{font-size:10px;letter-spacing:.8px}.collection-page.bestsellers-showcase .product{padding:18px}.collection-page.bestsellers-showcase .product-photo-button{height:220px}.collection-page.bestsellers-showcase .product h3{font-size:20px}
+}
+@media(max-width:600px){
+ .collection-stage{padding-top:17px;padding-bottom:14px}
+ .collection-hero .collection-breadcrumb{font-size:11px;margin-bottom:22px}
+ .collection-composition{min-height:0;grid-template-columns:minmax(0,1fr) 116px;gap:16px 12px;align-items:center;padding-bottom:24px}
+ .collection-story{display:contents}
+ .collection-hero .collection-kicker{grid-row:1;grid-column:1/-1;font-size:10px;letter-spacing:1.1px;margin:0}
+ .collection-hero .collection-kicker>span{width:22px}
+ .collection-hero h1{grid-row:2;grid-column:1;font-size:clamp(31px,9.2vw,43px);letter-spacing:-1px;overflow-wrap:normal}
+ .collection-hero h1>span{font-size:.56em;letter-spacing:-.3px;line-height:1.35;margin-bottom:6px}
+ .collection-story-description{grid-row:3;grid-column:1/-1;font-size:14px;line-height:1.6;max-width:100%;margin:0}
+ .collection-hero .collection-discover{grid-row:4;grid-column:1/-1;justify-self:start;min-height:44px;padding:12px 18px;font-size:11px;gap:16px}
+ .collection-gallery{grid-row:2;grid-column:2;min-height:140px;margin:0;padding:0;gap:0;width:100%}
+ .editorial-fragrance{width:100%;max-width:none;padding:10px;transform:none!important;box-shadow:0 8px 22px #433e3008}
+ .editorial-fragrance-2{display:none}
+ .editorial-fragrance .product-image{height:86px}
+ .editorial-fragrance-caption,.collection-favourites .editorial-fragrance-caption{font-size:8px;letter-spacing:.3px;gap:5px}
+ .editorial-fragrance-caption svg{width:11px;flex-shrink:0}
+ .editorial-fragrance-name{font-size:11px;line-height:1.35;margin-top:8px;text-align:left}
+ .collection-colophon{font-size:10px;letter-spacing:.6px;padding-top:13px}
+ .collection-colophon>span:last-child{display:none}
+ .collection-her .collection-colophon>span:first-child{font-size:14px}
+ .collection-geometry i:first-child,.collection-her .collection-geometry i:first-child,.collection-favourites .collection-geometry i:first-child,.collection-catalogue .collection-geometry i:first-child{width:200px;height:280px;right:-40px;left:auto;top:55px}
+ .collection-favourites .collection-geometry i:nth-child(3){width:230px;height:310px;right:-55px;top:40px}
+ .collection-list-heading{align-items:start;padding:10px 0 0;gap:12px}.collection-list-heading h2{font-size:24px}.collection-list-note{display:none}.collection-list-heading .collection-kicker{font-size:10px}
+ .collection-page.bestsellers-showcase .filtered-products{gap:12px}
+ .collection-page.bestsellers-showcase .product{padding:12px}
+ .collection-page.bestsellers-showcase .product-photo-button{height:155px;margin-block:4px 14px}
+ .collection-page.bestsellers-showcase .product h3{font-size:17px;min-height:70px}
+ .bestsellers-showcase .bestseller-badge{gap:5px}
+ .product-discover{display:none}.product .add-button{gap:4px}.product .add-button svg{width:12px}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}.editorial-fragrance,.product-photo-button .product-image img,.product-discover,.collection-discover{transition:none!important}
+ .product:hover .product-image img{transform:none}.editorial-fragrance,.editorial-fragrance:hover{transform:none!important}
+}
