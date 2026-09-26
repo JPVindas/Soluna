@@ -855,15 +855,23 @@ export default function Storefront({
                 <p className="home-hero-eyebrow">Soluna Fragrance</p>
                 <h1>{slides[slide].first} {slides[slide].second} <em>{slides[slide].accent}</em></h1>
                 <p className="home-hero-description">{slides[slide].subtitle}</p>
-                <Link className="gold-button" href={paths[slides[slide].category]}>
-                  {t('Ver colección','Explore collection')}<ArrowUpRight size={17} aria-hidden="true"/>
-                </Link>
+                <div className="home-hero-actions">
+                  <Link className="gold-button" href={paths[slides[slide].category]}>
+                    {t('Ver colección','Explore collection')}<ArrowUpRight size={17} aria-hidden="true"/>
+                  </Link>
+                  <Link className="home-hero-secondary" href="/mas-vendidos">
+                    {t('Descubre los favoritos','Discover the favourites')}<ChevronRight size={16} aria-hidden="true"/>
+                  </Link>
+                </div>
               </div>
               <div className={`home-hero-art home-hero-art-${slide}`}>
                 {['bleu','sauvage','good-girl-blush'].map((id,index)=>{
                   const product=products.find(p=>p.id===id)!;
                   return <figure key={id} className={`home-hero-product ${slide===index?'is-visible':''}`} aria-hidden={slide!==index}>
-                    <ProductPhoto product={product} eager={index===0} sizes="(max-width: 640px) 78vw, (max-width: 1024px) 44vw, 540px"/>
+                    <button className="home-hero-product-button" type="button" tabIndex={slide===index?0:-1} onClick={()=>setDetail(product)} aria-label={`${t('Descubrir','Discover')} ${product.name}`}>
+                      <ProductPhoto product={product} eager={index===0} sizes="(max-width: 640px) 78vw, (max-width: 1024px) 44vw, 540px"/>
+                      <span className="home-hero-product-hint">{t('Conoce esta fragancia','Discover this fragrance')}<Plus size={16} aria-hidden="true"/></span>
+                    </button>
                     <figcaption><span>{product.brand}</span>{product.name}</figcaption>
                   </figure>;
                 })}
@@ -875,6 +883,14 @@ export default function Storefront({
                 <button type="button" onClick={()=>setPlaying(v=>!v)} aria-pressed={playing} aria-label={playing?t('Pausar carrusel','Pause carousel'):t('Reanudar carrusel','Play carousel')}>{playing?<Pause size={15}/>:<Play size={15}/>}</button>
               </div>
             </div>
+          </section>
+        )}
+        {!collection && (
+          <section className="home-discover content" aria-label={t('Encuentra tu próxima fragancia','Find your next fragrance')}>
+            <div><span>{t('Tu próxima fragancia','Your next fragrance')}</span><h2>{t('¿Por dónde empezamos?','Where shall we start?')}</h2></div>
+            <Link href="/hombre"><span>{t('Para él','For him')}</span><small>{t('Explorar perfumes','Explore fragrances')}</small><ArrowUpRight size={19} aria-hidden="true"/></Link>
+            <Link href="/mujer"><span>{t('Para ella','For her')}</span><small>{t('Explorar perfumes','Explore fragrances')}</small><ArrowUpRight size={19} aria-hidden="true"/></Link>
+            <Link href="/perfumes?max=50000"><span>{t('Hasta ₡50.000','Up to ₡50,000')}</span><small>{t('Encuentra tu favorito','Find your favourite')}</small><ArrowUpRight size={19} aria-hidden="true"/></Link>
           </section>
         )}
         <section
