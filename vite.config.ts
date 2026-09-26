@@ -45,6 +45,16 @@ export default defineConfig(async () => {
   const { cloudflare } = await import('@cloudflare/vite-plugin');
 
   return {
+    environments: {
+      client: {
+        build: {
+          // The router dynamically imports navigation/cache namespaces. Without
+          // preserved signatures Rolldown merges them into the browser entry
+          // with renamed exports, breaking Link navigation only in production.
+          rollupOptions: { preserveEntrySignatures: 'strict' as const },
+        },
+      },
+    },
     css: {
       postcss: {
         plugins: [tailwindcss()],

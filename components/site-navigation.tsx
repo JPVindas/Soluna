@@ -38,16 +38,12 @@ export function SiteNavigation({
   onSearch: () => void;
   onCart: () => void;
 }) {
-  const { t } = useLanguage();
+  const { t,language,setLanguage } = useLanguage();
 
   const [open, setOpen] = useState(false);
   const [pinned, setPinned] = useState(false);
 
   const sentinel = useRef<HTMLSpanElement>(null);
-
-  const current =
-    items.find((item) => item.active)?.label ??
-    t('Inicio', 'Home');
 
   useEffect(() => {
     if (
@@ -140,10 +136,9 @@ export function SiteNavigation({
           <span>{t('Menú', 'Menu')}</span>
         </SheetTrigger>
 
-        {/* Colección actual en móvil */}
-        <span className="navigation-current">
-          {current}
-        </span>
+        <a className="navigation-brand" href="/" aria-label={t('Soluna, inicio','Soluna, home')}>
+          <img src="/soluna-logo-original.png" width="1580" height="995" alt="Soluna Fragrance"/>
+        </a>
 
         {/* Acciones */}
         <div className="navigation-actions">
@@ -242,6 +237,11 @@ export function SiteNavigation({
               <ChevronRight size={16} />
             </a>
           ))}
+        </div>
+        <div className="menu-language" role="group" aria-label={t('Idioma','Language')}>
+          <span>{t('Idioma','Language')}</span>
+          <button type="button" aria-pressed={language==='es'} onClick={()=>setLanguage('es')}>Español</button>
+          <button type="button" aria-pressed={language==='en'} onClick={()=>setLanguage('en')}>English</button>
         </div>
       </SheetContent>
     </Sheet>

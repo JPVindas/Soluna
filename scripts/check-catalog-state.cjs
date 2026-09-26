@@ -1,0 +1,27 @@
+const assert = require('node:assert/strict');
+require('./check-catalog.cjs');
+const {readCatalogState, writeCatalogState} = require('../lib/catalog-filters.ts');
+const {products} = require('../lib/catalog.ts');
+const {applyFilters, filterCount, MAX_PRICE} = require('../lib/catalog-filters.ts');
+
+assert.equal(typeof readCatalogState, 'function', 'Catalogue URL state must be decoded');
+const state = readCatalogState(new URLSearchParams('marca=prada&genero=mujer&ml=90&min=60000&max=70000&orden=price-asc&q=paradoxe&pagina=2'));
+assert.deepEqual(applyFilters(products, state.filters).map(p=>p.name), ['Paradoxe','Paradoxe Intense','Paradoxe Virtual Flower']);
+assert.equal(filterCount(state.filters), 4);
+assert.equal(state.query, 'paradoxe');
+assert.equal(state.sort, 'price-asc');
+assert.equal(state.page, 2);
+assert.deepEqual(readCatalogState(writeCatalogState(state)), state, 'Refresh must restore the complete combined selection');
+const brand = readCatalogState(new URLSearchParams('marca=dolce-gabbana'));
+assert.equal(applyFilters(products, brand.filters).length, 8);
+assert.equal(filterCount(brand.filters), 1);
+const invalid = readCatalogState(new URLSearchParams('marca=unknown&genero=other&ml=bad&min=-20&max=nope&orden=bogus&pagina=-2'));
+assert.equal(filterCount(invalid.filters), 0);
+assert.deepEqual(invalid.filters.priceRange, [0, MAX_PRICE]);
+assert.equal(invalid.page, 1);
+assert.equal(invalid.sort, 'recommended');
+const reversed = readCatalogState(new URLSearchParams('min=70000&max=60000'));
+assert.deepEqual(reversed.filters.priceRange, [60000,70000]);
+assert.deepEqual(readCatalogState(new URLSearchParams('marca=prada&marca=chanel')).filters.brands, ['Prada','Chanel']);
+assert.equal(writeCatalogState(invalid).toString(), '');
+console.log('Catalogue URL state: combined filters, brand counts, round trips and invalid values pass.');

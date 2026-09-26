@@ -43,7 +43,6 @@ import {
 } from '@/components/ui/dialog';
 
 import { HomeCategories } from '@/components/home-categories';
-import { ResponsiveImage } from '@/components/responsive-image';
 import { HowToShop } from '@/components/how-to-shop';
 import { useCart } from '@/components/cart-provider';
 import { useLanguage } from '@/components/language-provider';
@@ -65,8 +64,6 @@ import {
   cartSummary,
   sortProducts,
   brandsFor,
-  brandHref,
-  slugify,
   type Product,
   type SortOrder,
 } from '@/lib/catalog';
@@ -77,6 +74,9 @@ import {
   concentrationOf,
   filterCount,
   emptyFilters,
+  readCatalogState,
+  writeCatalogState,
+  type CatalogState,
   type Filters,
 } from '@/lib/catalog-filters';
 
@@ -109,7 +109,9 @@ export default function Storefront({
 }) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const urlQuery = searchParams.get('q') ?? '';
+  const searchKey = searchParams.toString();
+  const catalogState = useMemo(() => readCatalogState(new URLSearchParams(searchKey), initialBrand), [searchKey, initialBrand]);
+  const {sort, query, filters} = catalogState;
 
   const listingRef = useRef<HTMLDivElement>(null);
   const surfaceRef = useRef<HTMLDivElement>(null);
@@ -117,30 +119,36 @@ export default function Storefront({
   const { t, language, setLanguage } = useLanguage();
   const { cart, setCart } = useCart();
 
-  const [sort, setSort] = useState<SortOrder>('recommended');
-  const [query, setQuery] = useState(urlQuery);
   const [searchQuery, setSearchQuery] = useState('');
 
   const [searchOpen, setSearchOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const [filterOpen, setFilterOpen] = useState(false);
 
-  const [filters, setFilters] = useState<Filters>(emptyFilters);
   const [detail, setDetail] = useState<Product | null>(null);
   const [notice, setNotice] = useState(false);
 
   const [slide, setSlide] = useState(0);
-  const [playing, setPlaying] = useState(true);
+  const [playing, setPlaying] = useState(false);
   const [interacting, setInteracting] = useState(false);
 
   const category = collection ?? 'Más vendidos';
   const isBestsellers = category === 'Más vendidos';
   const theme = collectionThemes[category];
 
-  const [pagination, setPagination] = useState({
-    key: '',
-    page: 1,
-  });
+  function updateCatalogue(patch:Partial<CatalogState>, replace=false) {
+    const next={...catalogState,...patch,page:patch.page??1};
+    const params=writeCatalogState(next);
+    const href=`${paths[category]??'/perfumes'}${params.size?'?'+params.toString():''}`;
+    if(initialBrand){router.push(href,{scroll:false});return;}
+    // Vinext observes the native History API: no duplicated filter state or RSC request.
+    if(href===window.location.pathname+window.location.search)return;
+    window.history[replace?'replaceState':'pushState'](null,'',href);
+  }
+  const setFilters=(value:Filters)=>updateCatalogue({filters:value});
+  const setQuery=(value:string)=>updateCatalogue({query:value},true);
+  const setSort=(value:SortOrder)=>updateCatalogue({sort:value});
+  const clearCatalogue=()=>updateCatalogue({filters:emptyFilters(),query:'',sort:'recommended'});
 
   const categoryLabel = (value: string) =>
     ({
@@ -167,19 +175,15 @@ export default function Storefront({
 
   const scope = useMemo(
     () =>
-      filterProducts(category).filter(
-        (p) => !initialBrand || p.brand === initialBrand,
-      ),
-    [category, initialBrand],
+      filterProducts(category),
+    [category],
   );
 
   const selected = useMemo(
     () =>
       sortProducts(
         applyFilters(
-          filterProducts(category, query).filter(
-            (p) => !initialBrand || p.brand === initialBrand,
-          ),
+          filterProducts(category, query),
           collection ? filters : emptyFilters(),
         ),
         sort,
@@ -205,8 +209,7 @@ export default function Storefront({
     [collection],
   );
 
-  const urlBrand = searchParams.get('marca') ?? '';
-  const activeFilters = filterCount(filters);
+  const activeFilters = filterCount(filters) + (query.trim() ? 1 : 0);
 
   const paginationKey = JSON.stringify([
     category,
@@ -221,10 +224,7 @@ export default function Storefront({
     Math.ceil(selected.length / CATALOG_PAGE_SIZE),
   );
 
-  const currentPage =
-    pagination.key === paginationKey
-      ? Math.min(pagination.page, pageCount)
-      : 1;
+  const currentPage = Math.min(catalogState.page, pageCount);
 
   const visibleProducts = selected.slice(
     (currentPage - 1) * CATALOG_PAGE_SIZE,
@@ -236,13 +236,6 @@ export default function Storefront({
     `${paginationKey}:${currentPage}`,
   );
 
-  useEffect(() => {
-    setPagination({
-      key: paginationKey,
-      page: 1,
-    });
-  }, [paginationKey]);
-
   function changePage(page: number) {
     if (
       page < 1 ||
@@ -251,10 +244,7 @@ export default function Storefront({
     )
       return;
 
-    setPagination({
-      key: paginationKey,
-      page,
-    });
+    updateCatalogue({page});
 
     requestAnimationFrame(() => {
       listingRef.current?.focus({
@@ -336,21 +326,6 @@ export default function Storefront({
     );
     setNotice(true);
   }
-
-  useEffect(() => {
-    setQuery(urlQuery);
-  }, [collection, urlQuery]);
-
-  useEffect(() => {
-    const brand = brandsFor().find(
-      (name) => slugify(name) === urlBrand,
-    );
-
-    setFilters({
-      ...emptyFilters(),
-      brands: brand ? [brand] : [],
-    });
-  }, [collection, initialBrand, urlBrand]);
 
   useEffect(() => {
     if (
@@ -509,8 +484,6 @@ export default function Storefront({
               value.query ?? '',
             ),
         );
-
-        setQuery(value.query ?? '');
 
         return {
           category: value.category,
@@ -874,238 +847,36 @@ export default function Storefront({
         )}
 
         {!collection && (
-          <>
-            <section
-              className="hero cinematic-hero"
-              id="inicio"
-              aria-roledescription={t(
-                'carrusel',
-                'carousel',
-              )}
-              aria-label={t(
-                'Colecciones Soluna',
-                'Soluna collections',
-              )}
-              onMouseEnter={() =>
-                setInteracting(true)
-              }
-              onMouseLeave={() =>
-                setInteracting(false)
-              }
-              onFocusCapture={() =>
-                setInteracting(true)
-              }
-              onBlurCapture={(e) => {
-                if (
-                  !e.currentTarget.contains(
-                    e.relatedTarget as Node,
-                  )
-                ) {
-                  setInteracting(
-                    false,
-                  );
-                }
-              }}
-            >
-              <div
-                className={`hero-layer ${slide === 0 ? 'is-visible' : ''}`}
-                aria-hidden="true"
-              >
-                <ResponsiveImage
-                  className="hero-bg hero-generic"
-                  src="/images/hero-soluna-signature.webp"
-                  alt=""
-                  sizes="100vw"
-                  priority
-                />
-              </div>
-
-              <div
-                className={`hero-layer ${slide === 1 ? 'is-visible' : ''}`}
-                aria-hidden="true"
-              >
-                <ResponsiveImage
-                  className="hero-bg"
-                  src="/images/hero-gold-splash.png"
-                  alt=""
-                  sizes="100vw"
-                />
-              </div>
-
-              <div
-                className={`hero-layer ${slide === 2 ? 'is-visible' : ''}`}
-                aria-hidden="true"
-              >
-                <ResponsiveImage
-                  className="hero-bg"
-                  src="/images/hero-rose.png"
-                  alt=""
-                  sizes="100vw"
-                />
-              </div>
-
-              <div className="hero-shade" />
-
-              <div
-                className="hero-copy"
-                key={slide}
-              >
-                <p className="eyebrow">
-                  {t(
-                    'Soluna perfumería',
-                    'Soluna fragrance',
-                  )}{' '}
-                  <span>—</span>
-                </p>
-
-                <h1>
-                  {slides[slide].first}
-                  <br />
-                  {
-                    slides[slide]
-                      .second
-                  }{' '}
-                  <em>
-                    {
-                      slides[slide]
-                        .accent
-                    }
-                  </em>
-                </h1>
-
-                <p className="hero-subtitle">
-                  {
-                    slides[slide]
-                      .subtitle
-                  }
-                </p>
-
-                <Link
-                  className="gold-button"
-                  href={
-                    paths[
-                      slides[slide]
-                        .category
-                    ]
-                  }
-                >
-                  {t(
-                    'Ver colección',
-                    'Explore collection',
-                  )}
-                  <ArrowUpRight
-                    size={15}
-                  />
+          <section className="home-hero" aria-roledescription={t('carrusel','carousel')} aria-label={t('Colecciones Soluna','Soluna collections')}
+            onMouseEnter={()=>setInteracting(true)} onMouseLeave={()=>setInteracting(false)}
+            onFocusCapture={()=>setInteracting(true)} onBlurCapture={e=>{if(!e.currentTarget.contains(e.relatedTarget as Node))setInteracting(false)}}>
+            <div className="home-hero-inner content">
+              <div className="home-hero-copy" key={slide}>
+                <p className="home-hero-eyebrow">Soluna Fragrance</p>
+                <h1>{slides[slide].first} {slides[slide].second} <em>{slides[slide].accent}</em></h1>
+                <p className="home-hero-description">{slides[slide].subtitle}</p>
+                <Link className="gold-button" href={paths[slides[slide].category]}>
+                  {t('Ver colección','Explore collection')}<ArrowUpRight size={17} aria-hidden="true"/>
                 </Link>
               </div>
-
-              <button
-                className="hero-arrow previous"
-                aria-label={t(
-                  'Colección anterior',
-                  'Previous collection',
-                )}
-                onClick={() =>
-                  setSlide(
-                    (s) =>
-                      (s + 2) %
-                      3,
-                  )
-                }
-              >
-                <ChevronLeft />
-              </button>
-
-              <button
-                className="hero-arrow next"
-                aria-label={t(
-                  'Siguiente colección',
-                  'Next collection',
-                )}
-                onClick={() =>
-                  setSlide(
-                    (s) =>
-                      (s + 1) %
-                      3,
-                  )
-                }
-              >
-                <ChevronRight />
-              </button>
-
-              <div className="carousel-bottom">
-                <span className="slide-counter">
-                  0{slide + 1}
-                  <i />
-                  03
-                </span>
-
-                <div className="dots">
-                  {slides.map(
-                    (_, i) => (
-                      <button
-                        key={i}
-                        className={
-                          i ===
-                          slide
-                            ? 'selected'
-                            : ''
-                        }
-                        aria-label={t(
-                          `Ver colección ${i + 1}`,
-                          `View collection ${i + 1}`,
-                        )}
-                        aria-pressed={
-                          i ===
-                          slide
-                        }
-                        onClick={() =>
-                          setSlide(
-                            i,
-                          )
-                        }
-                      />
-                    ),
-                  )}
-                </div>
-
-                <button
-                  className="carousel-play"
-                  aria-label={
-                    playing
-                      ? t(
-                          'Pausar carrusel',
-                          'Pause carousel',
-                        )
-                      : t(
-                          'Reanudar carrusel',
-                          'Play carousel',
-                        )
-                  }
-                  aria-pressed={
-                    !playing
-                  }
-                  onClick={() =>
-                    setPlaying(
-                      !playing,
-                    )
-                  }
-                >
-                  {playing ? (
-                    <Pause
-                      size={14}
-                    />
-                  ) : (
-                    <Play
-                      size={14}
-                    />
-                  )}
-                </button>
+              <div className={`home-hero-art home-hero-art-${slide}`}>
+                {['bleu','sauvage','good-girl-blush'].map((id,index)=>{
+                  const product=products.find(p=>p.id===id)!;
+                  return <figure key={id} className={`home-hero-product ${slide===index?'is-visible':''}`} aria-hidden={slide!==index}>
+                    <ProductPhoto product={product} eager={index===0} sizes="(max-width: 640px) 78vw, (max-width: 1024px) 44vw, 540px"/>
+                    <figcaption><span>{product.brand}</span>{product.name}</figcaption>
+                  </figure>;
+                })}
               </div>
-            </section>
-          </>
+              <div className="home-hero-controls" aria-label={t('Cambiar colección','Change collection')}>
+                <button type="button" onClick={()=>setSlide(s=>(s+2)%3)} aria-label={t('Colección anterior','Previous collection')}><ChevronLeft size={19}/></button>
+                <div className="home-hero-tabs">{slides.map((item,i)=><button type="button" key={item.category} aria-pressed={slide===i} onClick={()=>setSlide(i)}>{categoryLabel(item.category)}</button>)}</div>
+                <button type="button" onClick={()=>setSlide(s=>(s+1)%3)} aria-label={t('Siguiente colección','Next collection')}><ChevronRight size={19}/></button>
+                <button type="button" onClick={()=>setPlaying(v=>!v)} aria-pressed={playing} aria-label={playing?t('Pausar carrusel','Pause carousel'):t('Reanudar carrusel','Play carousel')}>{playing?<Pause size={15}/>:<Play size={15}/>}</button>
+              </div>
+            </div>
+          </section>
         )}
-
         <section
           className={`catalog content ${
             collection
@@ -1212,44 +983,40 @@ export default function Storefront({
               </span>
 
               <div className="catalog-brand-links">
-                <Link
+                <button
+                  type="button"
+                  aria-pressed={!filters.brands.length}
                   className={
-                    !initialBrand &&
                     !filters.brands
                       .length
                       ? 'is-active'
                       : ''
                   }
-                  href={
-                    paths[category]
-                  }
+                  onClick={()=>setFilters({...filters,brands:[]})}
                 >
                   {t(
                     'Todas',
                     'All',
                   )}
-                </Link>
+                </button>
 
                 {collectionBrands.map(
                   (brand) => (
-                    <Link
+                    <button
+                      type="button"
                       key={brand}
+                      aria-pressed={filters.brands.includes(brand)}
                       className={
-                        initialBrand ===
-                          brand ||
                         filters.brands.includes(
                           brand,
                         )
                           ? 'is-active'
                           : ''
                       }
-                      href={brandHref(
-                        brand,
-                        collection,
-                      )}
+                      onClick={()=>setFilters({...filters,brands:filters.brands.includes(brand)?filters.brands.filter(value=>value!==brand):[...filters.brands,brand]})}
                     >
                       {brand}
-                    </Link>
+                    </button>
                   ),
                 )}
               </div>
@@ -1369,6 +1136,8 @@ export default function Storefront({
                     setFilters
                   }
                   items={scope}
+                  activeCount={activeFilters}
+                  onClear={clearCatalogue}
                 />
               </aside>
             )}
@@ -1415,12 +1184,7 @@ export default function Storefront({
 
                   <button
                     className="gold-button"
-                    onClick={() => {
-                      setQuery('');
-                      setFilters(
-                        emptyFilters(),
-                      );
-                    }}
+                    onClick={clearCatalogue}
                   >
                     {t(
                       'Limpiar búsqueda y filtros',
@@ -1967,6 +1731,8 @@ export default function Storefront({
             filters={filters}
             onChange={setFilters}
             items={scope}
+            activeCount={activeFilters}
+            onClear={clearCatalogue}
           />
 
           <p
