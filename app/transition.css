@@ -1,0 +1,88 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Route transition — the Soluna signature moment (≈ 1s).
+   0.00 ink veil settles over the page (no white frame, ever)
+   0.12 the bottle rises into focus
+   0.25 splash at its base: two ripples on the wet surface, gold drops thrown in arcs;
+        a reflection crosses the glass
+   0.38 SOLUNA opens from its centre, inside the splash
+   0.68 when the next page has rendered: the scene dissolves forward, the veil lifts.
+   Everything is transform / opacity / clip-path; the scene is always mounted (no work
+   at click time) and is remounted per run only to restart its keyframes.
+   ───────────────────────────────────────────────────────────────────────── */
+.rt{--w:clamp(200px,24vmin,300px);--k:1;position:fixed;inset:0;z-index:85;visibility:hidden;pointer-events:none;contain:strict}
+.rt[data-phase=play],.rt[data-phase=exit]{visibility:visible}
+/* While it plays it absorbs clicks: no double navigation. */
+.rt[data-phase=play]{pointer-events:auto}
+.rt-veil{position:absolute;inset:0;background:radial-gradient(ellipse 60% 55% at 50% 52%,#1d1912 0%,#0d0c0a 62%);opacity:0}
+.rt[data-phase=play] .rt-veil{animation:rt-in .2s var(--ease-out) both}
+.rt[data-phase=exit] .rt-veil{animation:rt-out .32s var(--ease-in-out) 40ms both}
+@keyframes rt-in{from{opacity:0}to{opacity:1}}
+@keyframes rt-out{from{opacity:1}to{opacity:0}}
+
+.rt-stage{position:absolute;left:50%;top:50%;width:var(--w);display:grid;justify-items:center;transform:translate(-50%,-56%)}
+.rt[data-phase=exit] .rt-stage{animation:rt-stage-out .26s var(--ease-out) both}
+@keyframes rt-stage-out{to{opacity:0;transform:translate(-50%,-56%) scale(1.06)}}
+
+/* Warm light behind the glass; breathes only if the page takes longer than the moment. */
+.rt-glow{position:absolute;left:50%;top:42%;width:calc(var(--w) * 2.3);aspect-ratio:1;margin:calc(var(--w) * -1.15) 0 0 calc(var(--w) * -1.15);border-radius:50%;background:radial-gradient(closest-side,#cfab7247,#cfab7212 55%,#cfab7200);opacity:0}
+.rt[data-phase=play] .rt-glow{animation:rt-glow .6s var(--ease-out) .15s both,rt-breathe 1.8s ease-in-out 1.1s infinite alternate}
+@keyframes rt-glow{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
+@keyframes rt-breathe{to{opacity:.7;transform:scale(1.06)}}
+
+/* The bottle: the campaign photograph, its edges dissolved into the ink. */
+.rt-bottle{position:relative;width:var(--w);aspect-ratio:480 / 570;-webkit-mask-image:radial-gradient(ellipse 52% 50% at 50% 47%,#000 58%,#0000 100%);mask-image:radial-gradient(ellipse 52% 50% at 50% 47%,#000 58%,#0000 100%)}
+.rt-bottle img{display:block;width:100%;height:100%}
+.rt[data-phase=play] .rt-bottle{animation:rt-bottle .44s var(--ease-out) .12s both}
+@keyframes rt-bottle{from{opacity:0;transform:translateY(18px) scale(.9);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+.rt-sheen{position:absolute;inset:0;background:linear-gradient(104deg,#fff0 34%,#fff4dc8c 50%,#fff0 66%);mix-blend-mode:screen;transform:translateX(-120%)}
+.rt[data-phase=play] .rt-sheen{animation:rt-sheen .52s cubic-bezier(.45,0,.2,1) .3s both}
+@keyframes rt-sheen{to{transform:translateX(120%)}}
+
+/* Splash from the base of the bottle (≈ 84% of its height). */
+.rt-splash{position:absolute;left:50%;top:var(--w);width:0;height:0}
+.rt-ring{position:absolute;left:calc(var(--w) * -.58);top:calc(var(--w) * -.1);width:calc(var(--w) * 1.16);height:calc(var(--w) * .2);border:1px solid #ecd3a5b3;border-radius:50%;opacity:0}
+.rt-ring-late{border-color:#ecd3a566}
+.rt[data-phase=play] .rt-ring{animation:rt-ring .62s var(--ease-out) .26s both}
+.rt[data-phase=play] .rt-ring-late{animation-delay:.36s}
+@keyframes rt-ring{0%{opacity:.85;transform:scale(.22)}100%{opacity:0;transform:scale(1.75)}}
+.rt-splash i{position:absolute;left:0;top:0;width:var(--size);height:var(--size);margin:calc(var(--size) / -2) 0 0 calc(var(--size) / -2);border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff8e8,#e7c587 55%,#b98a4f33);box-shadow:0 0 6px #f0d2a073;opacity:0}
+.rt[data-phase=play] .rt-splash i{animation:rt-drop .56s cubic-bezier(.2,.6,.35,1) calc(250ms + var(--delay)) both}
+@keyframes rt-drop{
+ 0%{opacity:0;transform:translate(0,0) scale(.6)}
+ 14%{opacity:1}
+ 55%{opacity:1;transform:translate(calc(var(--x) * var(--k) * .72),calc(var(--peak) * var(--k))) scale(1)}
+ 100%{opacity:0;transform:translate(calc(var(--x) * var(--k)),calc(var(--land) * var(--k))) scale(.7)}
+}
+
+/* SOLUNA opens from its centre inside the splash. */
+.rt-logo{position:relative;width:calc(var(--w) * .86);height:auto;margin-top:calc(var(--w) * -.08);opacity:0}
+.rt[data-phase=play] .rt-logo{animation:rt-logo .36s var(--ease-out) .38s both}
+@keyframes rt-logo{from{opacity:0;clip-path:inset(0 50% 0 50%);filter:blur(8px);transform:translateY(6px)}to{opacity:1;clip-path:inset(0 0 0 0);filter:none;transform:none}}
+
+/* Phones, portrait: the bottle takes a larger share of the width, the splash stays
+   inside the screen, fewer drops. */
+@media(max-width:640px){
+ .rt{--w:min(54vw,230px);--k:.82}
+ .rt-stage{transform:translate(-50%,-54%)}
+ @keyframes rt-stage-out{to{opacity:0;transform:translate(-50%,-54%) scale(1.05)}}
+ .rt-splash i:nth-of-type(n+9){display:none}
+}
+/* Short landscape screens: sized by height. */
+@media(max-height:520px){
+ .rt{--w:min(36vh,190px);--k:.7}
+}
+/* Modest devices: no blur, no blended sheen, fewer drops. */
+html[data-motion=lite] .rt-sheen,html[data-motion=lite] .rt-splash i:nth-of-type(n+7){display:none}
+html[data-motion=lite] .rt[data-phase=play] .rt-bottle{animation-name:rt-bottle-lite}
+html[data-motion=lite] .rt[data-phase=play] .rt-logo{animation-name:rt-logo-lite}
+@keyframes rt-bottle-lite{from{opacity:0;transform:translateY(18px) scale(.9)}to{opacity:1;transform:none}}
+@keyframes rt-logo-lite{from{opacity:0;clip-path:inset(0 50% 0 50%)}to{opacity:1;clip-path:inset(0 0 0 0)}}
+
+/* Reduced motion: the same beat told as a still — veil, bottle and logo fade in and out. */
+@media(prefers-reduced-motion:reduce){
+ .rt-splash,.rt-sheen{display:none}
+ .rt[data-phase=play] .rt-bottle,.rt[data-phase=play] .rt-logo,.rt[data-phase=play] .rt-glow{animation:rt-in .16s ease both}
+ .rt[data-phase=play] .rt-veil{animation-duration:.16s}
+ .rt[data-phase=exit] .rt-stage{animation:rt-out .2s ease both}
+ .rt[data-phase=exit] .rt-veil{animation:rt-out .22s ease both}
+}

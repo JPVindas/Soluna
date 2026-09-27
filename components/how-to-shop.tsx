@@ -1,15 +1,29 @@
 'use client';
-import {Compass,Heart,ShoppingBag,ListChecks,MessageCircle,Smartphone} from 'lucide-react';
+import {ArrowUpRight} from 'lucide-react';
 import {useLanguage} from './language-provider';
-export function HowToShop(){
+
+// Buying at Soluna is a conversation, so the steps and the contact live together.
+export function HowToShop({contactUrl}:{contactUrl:string}){
  const {t}=useLanguage();
  const steps=[
-  {Icon:Compass,title:t('Explora','Explore'),text:t('Navega por Hombre y Mujer.','Browse Men and Women.')},
-  {Icon:Heart,title:t('Elige tu fragancia','Choose your fragrance'),text:t('Selecciona los perfumes que más te gustan.','Choose the perfumes you love.')},
-  {Icon:ShoppingBag,title:t('Agrégalos al carrito','Add to your cart'),text:t('Reúne tu selección en un solo pedido.','Gather your selection in one order.')},
-  {Icon:ListChecks,title:t('Revisa tu selección','Review your selection'),text:t('Comprueba los productos y las cantidades de tu consulta.','Check the products and quantities in your enquiry.')},
-  {Icon:MessageCircle,title:t('Abre WhatsApp','Open WhatsApp'),text:t('Pulsa Checkout y revisa la consulta antes de enviarla.','Press Checkout and review your enquiry before sending.')},
-  {Icon:Smartphone,title:t('Confirma con Soluna','Confirm with Soluna'),text:t('Coordinamos disponibilidad, precio final y pago por SINPE Móvil.','We confirm availability, final price and SINPE Móvil payment instructions.')},
+  {title:t('Elige','Choose'),text:t('Explora el catálogo y agrega tus perfumes al carrito.','Browse the catalogue and add your fragrances to the cart.')},
+  {title:t('Consulta','Enquire'),text:t('El checkout abre WhatsApp con tu pedido escrito. Lo revisas antes de enviarlo.','Checkout opens WhatsApp with your order written out. Review it before sending.')},
+  {title:t('Recibe','Receive'),text:t('Confirmamos disponibilidad, pagas por SINPE Móvil y lo enviamos a todo Costa Rica.','We confirm availability, you pay by SINPE Móvil and we ship across Costa Rica.')},
  ];
- return <section className="how-to-shop" aria-labelledby="how-to-title"><div className="content"><h2 id="how-to-title">{t('Cómo comprar en Soluna','How to shop at Soluna')}</h2><ol>{steps.map(({Icon,title,text},i)=><li key={i}><div className="step-top"><Icon size={24} aria-hidden="true"/><span aria-hidden="true">0{i+1}</span></div><h3>{title}</h3><p>{text}</p></li>)}</ol></div></section>;
+ return <section className="how" id="contacto" tabIndex={-1} aria-labelledby="how-title">
+  <div className="how-inner">
+   <div className="how-intro" data-reveal>
+    <p className="eyebrow">{t('Cómo comprar','How to shop')}</p>
+    <h2 id="how-title">{t('Comprar aquí es','Shopping here is')} <em>{t('una conversación.','a conversation.')}</em></h2>
+    <p>{t('Sin formularios ni cuentas. Te asesoramos por WhatsApp, de persona a persona.','No forms, no accounts. We advise you on WhatsApp, person to person.')}</p>
+    <a className="button button-gold" href={contactUrl} target="_blank" rel="noopener noreferrer">{t('Escribir por WhatsApp','Chat on WhatsApp')}<ArrowUpRight size={17} aria-hidden="true"/></a>
+   </div>
+   <ol className="how-steps">
+    {steps.map((step,i)=><li key={step.title} data-reveal data-reveal-index={i}>
+     <span className="how-number" aria-hidden="true">{i+1}</span>
+     <div><h3>{step.title}</h3><p>{step.text}</p></div>
+    </li>)}
+   </ol>
+  </div>
+ </section>;
 }

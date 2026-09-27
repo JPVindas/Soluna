@@ -1,0 +1,94 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Soluna motion system — shared language for every moving part.
+   Curves  --ease-out (arrivals, feedback) · --ease-in-out (things moving on screen)
+           --ease-drawer (surfaces: sheets, curtain)
+   Timing  press 100–160ms · UI 180–300ms · surfaces 400–600ms · brand moments ≤ 2.7s
+   Rules   enter slower than exit; transforms and opacity only; interruptible
+           transitions for anything the user can repeat; nothing loops off-screen.
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* Route feedback stays above the page without masking it. */
+.route-feedback{position:fixed;inset:0 0 auto;height:2px;z-index:70;background:var(--gold);transform:scaleX(1);transform-origin:left;opacity:0;pointer-events:none;transition:opacity 180ms ease}
+.route-feedback[data-pending]{opacity:1;animation:route-progress 2400ms var(--ease-out) both}
+@keyframes route-progress{from{transform:scaleX(.05)}to{transform:scaleX(.9)}}
+html[data-nav] main{opacity:1}
+@media(prefers-reduced-motion:reduce){.route-feedback[data-pending]{animation:none}}
+
+/* ── Adaptive motion tiers (set before paint in the layout) ────────────────
+   lite: modest CPUs/memory, data saver or slow networks — keep the choreography,
+   drop the expensive layers (blend, blur, scroll-linked parallax, pointer depth). */
+html[data-motion=lite] .home-hero>.home-hero-media,html[data-motion=lite] .path-media{animation:none!important}
+html[data-motion=lite] .intro-sweep,html[data-motion=lite] .intro-cone,html[data-motion=lite] .intro-drop.is-soft{display:none}
+html[data-motion=lite] .intro-logo-mark,html[data-motion=lite] .spot-media .product-image{filter:none!important}
+
+/* Intro waits for its photograph (never longer than 600ms, then it steps aside). */
+html[data-intro-wait] .soluna-intro,html[data-intro-wait] .soluna-intro *{animation-play-state:paused!important}
+
+
+/* ── Microinteractions: every control answers on press; hover only with a mouse ── */
+.catalog-pagination button{width:44px;height:44px;background:transparent;border-color:var(--line);color:var(--text-2);font:500 14px/1 var(--sans);transition:background-color .2s ease,border-color .2s ease,color .2s ease,transform .14s var(--ease-out)}
+.catalog-pagination button:active:not(:disabled){transform:scale(.94)}
+.catalog-pagination button[aria-current=page]{background:var(--ink);border-color:var(--ink);color:var(--on-dark)}
+.catalog-sort [data-slot=select-trigger]{background:#fff;border-color:var(--line);font-size:13px;transition:border-color .2s ease,transform .14s var(--ease-out)}
+.catalog-sort [data-slot=select-trigger]:active{transform:scale(.98)}
+.catalog-sort [data-slot=select-trigger]:focus-visible{outline:2px solid var(--gold-ink);outline-offset:2px}
+/* Popups grow from the control that opened them (modals stay centred). */
+[data-slot=select-content],.catalog-sort-options{transform-origin:var(--transform-origin,top center)}
+.catalog-sort-options [data-slot=select-item]{transition:background-color .15s ease}
+.filter-choice{min-height:40px;transition:color .15s ease}
+.filter-choice [data-slot=checkbox]{transition:transform .14s var(--ease-out),background-color .15s ease,border-color .15s ease}
+.filter-choice:active [data-slot=checkbox]{transform:scale(.88)}
+.search-preview li button{transition:background-color .15s ease,transform .14s var(--ease-out)}
+.search-preview li button:active{transform:scale(.99)}
+.search-preview li button svg{transition:transform .25s var(--ease-out)}
+.quantity button{transition:background-color .15s ease,border-color .15s ease,transform .12s var(--ease-out)}
+.quantity button:active:not(:disabled){transform:scale(.9)}
+.menu-sheet-links a{transition:opacity .15s ease}
+.menu-sheet-links a:active{opacity:.6}
+.site-footer-col a{background:linear-gradient(currentColor,currentColor) 0 calc(100% - 10px)/0 1px no-repeat;transition:color .2s ease,background-size .35s var(--ease-out)}
+.collection-search input,.search-input input{caret-color:var(--gold-ink)}
+@media(hover:hover) and (pointer:fine){
+ .catalog-pagination button:hover:not(:disabled):not([aria-current]){background:#fff;border-color:var(--text);color:var(--text)}
+ .catalog-sort [data-slot=select-trigger]:hover{border-color:var(--text)}
+ .filter-choice:hover{color:var(--text)}
+ .search-preview li button:hover{background:var(--paper-2)}
+ .search-preview li button:hover svg{transform:translate(2px,-2px)}
+ .quantity button:hover:not(:disabled){border-color:var(--text)!important}
+ .site-footer-col a:hover{background-size:100% 1px}
+}
+/* Old unconditioned hover rules must not stick after a tap. */
+@media(hover:none){
+ .catalog-pagination button:hover:not([aria-current]),.search-preview li button:hover{background:transparent;border-color:var(--line);color:inherit}
+}
+
+/* ── Moving between sections (Hombre · Mujer · Más vendidos · Catálogo) ─────────
+   Frequent, so it must feel immediate, never staged:
+   1) the tab you press takes the active look at once (optimistic, before the page arrives);
+   2) the progress line only appears if the wait passes ~150ms, so fast changes don't flicker;
+   3) after the first arrival, pages enter with a short fade (≤ 400ms): no zoom, no blur,
+      no replayed reveals for content that is already on screen. */
+.route-feedback[data-pending]{transition:opacity .18s ease .15s}
+.site-header-links a:active,.catalog-categories a:active{opacity:.7}
+.site-header-links a[data-pending]{color:var(--on-dark)}
+.site-header-links a[data-pending]:after{transform:scaleX(1);transform-origin:left}
+.site-header-links[data-has-pending] a[aria-current]:not([data-pending]){color:var(--on-dark-2)}
+.site-header-links[data-has-pending] a[aria-current]:not([data-pending]):after{transform:scaleX(0);transform-origin:right}
+.catalog-categories a[data-pending]{color:var(--text)}
+.catalog-categories a[data-pending]:after{transform:scaleX(1);transform-origin:left}
+.catalog-categories[data-has-pending] a[aria-current]:not([data-pending]){color:var(--text-3)}
+.catalog-categories[data-has-pending] a[aria-current]:not([data-pending]):after{transform:scaleX(0);transform-origin:right}
+.catalog-brand-links a[data-pending]{background:var(--ink);border-color:var(--ink);color:var(--on-dark)}
+.catalog-brand-links a[data-pending] small{color:var(--on-dark-3)}
+.catalog-brand-links[data-has-pending] a[aria-current]:not([data-pending]){background:transparent;border-color:var(--line);color:var(--text-2)}
+.catalog-brand-links[data-has-pending] a[aria-current]:not([data-pending]) small{color:var(--text-3)}
+@media(prefers-reduced-motion:no-preference){
+ html[data-navigated] .page-hero-media img{animation:section-scene .45s ease both!important}
+ html[data-navigated] .page-hero-inner>*{animation:section-rise .38s var(--ease-out) both!important;animation-delay:var(--q,0ms)!important}
+ html[data-navigated] .page-hero-inner>:nth-child(2){--q:30ms}
+ html[data-navigated] .page-hero-inner>:nth-child(3){--q:60ms}
+ html[data-navigated] .page-hero-inner>:nth-child(4){--q:90ms}
+ html[data-navigated] .home-hero-copy>*{animation:section-rise .38s var(--ease-out) both!important;animation-delay:calc(var(--d,0ms) / 2)!important}
+ html[data-navigated] .home-hero-scene img{transition-duration:.6s}
+ @keyframes section-scene{from{opacity:.35}}
+ @keyframes section-rise{from{opacity:0;transform:translateY(8px)}}
+}

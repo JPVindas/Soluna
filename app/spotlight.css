@@ -1,0 +1,129 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Bestsellers — "Los que todos quieren".
+   One bottle on stage at a time, lit, on a set that takes the bottle's tint.
+   Desktop: stacked slides cross over with direction (before ↑ / after ↓), CSS
+   transitions so rapid changes retarget instead of restarting. Exit is quick,
+   entrance is slower and staggered (system response snaps, arrival breathes).
+   Phone (<900px): the same slides become a native scroll-snap carousel.
+   ───────────────────────────────────────────────────────────────────────── */
+.spot{position:relative;background:var(--tint,var(--paper-2));transition:background-color .9s ease;padding-block:clamp(72px,9vw,132px) clamp(56px,7vw,96px);overflow:hidden;outline:0}
+.spot-inner{max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
+.spot-head{display:grid;grid-template-columns:1fr auto;align-items:end;gap:14px 40px;margin-bottom:clamp(18px,2.4vw,36px)}
+.spot-head .eyebrow{grid-column:1}
+.spot-head h2{grid-column:1;margin:0;font-size:clamp(38px,4.8vw,68px);line-height:1;letter-spacing:-.03em;font-weight:350}
+.spot-head h2 em{color:var(--gold-ink)}
+.spot-head .text-link{grid-column:2;grid-row:2}
+
+/* Stage */
+.spot-stage{position:relative;height:clamp(500px,48vw,660px)}
+.spot-track{position:relative;height:100%}
+.spot-slide{position:absolute;inset:0;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,4vw,72px);visibility:hidden;pointer-events:none;transition:visibility 0s linear .55s}
+.spot-slide.is-active{visibility:visible;pointer-events:auto;transition-delay:0s}
+
+/* Rank: two digits in a one-line window roll to the active number. */
+.spot-rank{position:absolute;left:0;top:clamp(8px,2vw,28px);z-index:2;display:flex;align-items:flex-start;gap:10px;pointer-events:none}
+.spot-rank-label{margin-top:.55em;font:italic 400 clamp(16px,1.4vw,20px)/1 var(--serif);color:var(--gold-ink)}
+.spot-rank-window{display:block;height:1em;overflow:hidden;font:300 clamp(84px,9vw,144px)/1 var(--serif);letter-spacing:-.05em;color:var(--text)}
+.spot-rank-digits{display:flex;flex-direction:column;transform:translateY(calc(var(--active,0) * -1em));transition:transform .75s var(--ease-in-out)}
+.spot-rank-digits>span{display:block;height:1em}
+.spot-rank-total{align-self:flex-end;margin-bottom:.9em;font:500 12px/1 var(--sans);letter-spacing:.12em;color:var(--text-3)}
+
+/* Media: bottle on its own light, a soft floor under it. The pointer adds depth
+   through `translate` (independent of the transition's `transform`). */
+.spot-media{position:relative;grid-column:2;grid-row:1;display:block;width:100%;height:100%;padding:0;border:0;background:none;cursor:pointer}
+.spot-light{position:absolute;left:50%;top:48%;width:min(78%,560px);aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,#fffdf8e6,#fffdf866 55%,#fffdf800);margin:calc(min(78%,560px) / -2) 0 0 calc(min(78%,560px) / -2);opacity:0;transition:opacity .4s ease}
+.spot-floor{position:absolute;left:50%;bottom:7%;width:44%;height:26px;translate:-50% 0;border-radius:50%;background:radial-gradient(closest-side,#2a1f1433,#2a1f1400);opacity:0;transition:opacity .4s ease}
+.spot-media .product-image{position:absolute;inset:5% 8% 9%;width:auto;height:auto;aspect-ratio:auto;padding:0;background:transparent;mix-blend-mode:multiply;overflow:visible;opacity:0;transform:translateY(6%) scale(.96);filter:blur(10px);transition:opacity .3s ease,transform .45s var(--ease-out),filter .3s ease}
+.spot-media img{object-fit:contain;object-position:50% 100%;filter:brightness(1.035) contrast(1.02)}
+.spot-slide.is-before .spot-media .product-image{transform:translateY(-6%) scale(.96)}
+.spot-slide.is-active .spot-light,.spot-slide.is-active .spot-floor{opacity:1;transition:opacity .9s ease .12s}
+.spot-slide.is-active .spot-media .product-image{opacity:1;transform:none;filter:none;transition:opacity .7s ease .1s,transform 1.05s var(--ease-out) .1s,filter .7s ease .1s}
+
+/* Information arrives in reading order; the name rises from behind a mask. */
+.spot-info{grid-column:1;grid-row:1;align-self:end;display:flex;flex-direction:column;padding-bottom:clamp(64px,7vw,96px)}
+.spot-info>*{opacity:0;transform:translateY(14px);transition:opacity .22s ease,transform .3s ease}
+.spot-slide.is-before .spot-info>*{transform:translateY(-10px)}
+.spot-slide.is-active .spot-info>*{opacity:1;transform:none;transition:opacity .6s ease,transform .85s var(--ease-out);transition-delay:calc(160ms + var(--i,0) * 60ms)}
+.spot-info>:nth-child(2){--i:1}.spot-info>:nth-child(3){--i:2}.spot-info>:nth-child(4){--i:3}.spot-info>:nth-child(5){--i:4}
+.spot-brand{margin:0 0 10px;font:600 11px/1.3 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--text-3)}
+.spot-name{margin:0;overflow:hidden;padding-bottom:.06em;font:350 clamp(40px,4.4vw,68px)/1 var(--serif);letter-spacing:-.03em}
+.spot-name>span{display:block;transform:translateY(105%);transition:transform .3s ease}
+.spot-slide.is-active .spot-name>span{transform:none;transition:transform 1s var(--ease-out) .22s}
+.spot-meta{margin:14px 0 0;font-size:14px;color:var(--text-2)}
+.spot-price{margin:22px 0 0;font:500 clamp(22px,2vw,28px)/1 var(--sans);letter-spacing:-.02em}
+.spot-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px 26px;margin-top:28px}
+.spot-actions .button{min-width:220px;justify-content:space-between}
+.spot-actions .button>span{display:inline-block}
+.spot-actions .button[data-in-cart]{background:var(--ink-3);border-color:var(--ink-3)}
+.spot-actions .text-link{border:0;padding:0;background-color:transparent;cursor:pointer}
+
+/* Arrows sit under the stage's right edge. */
+.spot-arrows{position:absolute;right:0;bottom:0;z-index:2;display:flex;gap:8px}
+.spot-arrows button{display:grid;place-items:center;width:52px;height:52px;border:1px solid #1b181333;border-radius:2px;background:transparent;color:var(--text);transition:background-color .2s ease,border-color .2s ease,color .2s ease,transform .16s var(--ease-out)}
+.spot-arrows button:active{transform:scale(.94)}
+
+/* Index of the five: a hairline fills over the active one. */
+.spot-index{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0 18px;margin:clamp(20px,2.6vw,36px) 0 0;padding:0;list-style:none;border-top:1px solid #1b181322}
+.spot-index button{position:relative;display:grid;grid-template-columns:auto 44px minmax(0,1fr);align-items:center;gap:12px;width:100%;min-height:72px;padding:14px 0 6px;border:0;background:none;color:var(--text-3);text-align:left;cursor:pointer;transition:color .25s ease}
+.spot-index-bar{position:absolute;top:-1px;left:0;right:0;height:2px;background:var(--text);transform:scaleX(0);transform-origin:left;transition:transform .55s var(--ease-out)}
+.spot-index button[aria-current]{color:var(--text)}
+.spot-index button[aria-current] .spot-index-bar{transform:scaleX(1)}
+.spot-index-no{font:italic 400 14px/1 var(--serif);color:var(--gold-ink)}
+.spot-index-thumb{display:block;width:44px;height:44px;transition:transform .35s var(--ease-out)}
+.spot-index-thumb .product-image{width:100%;height:100%;padding:2px;background:transparent;mix-blend-mode:multiply}
+.spot-index-name{display:flex;flex-direction:column;gap:4px;min-width:0;font:400 15px/1.2 var(--serif);white-space:nowrap}
+.spot-index-name,.spot-index-name small{overflow:hidden;text-overflow:ellipsis}
+.spot-index-name small{font:600 10.5px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--text-3)}
+.spot-index button:focus-visible,.spot-arrows button:focus-visible,.spot-media:focus-visible{outline:2px solid var(--gold-ink);outline-offset:3px}
+
+@media(hover:hover) and (pointer:fine){
+ .spot-arrows button:hover{background:var(--ink);border-color:var(--ink);color:var(--on-dark)}
+ .spot-index button:hover{color:var(--text)}
+ .spot-index button:hover .spot-index-thumb{transform:translateY(-3px)}
+ .spot-slide.is-active .spot-media:hover .product-image{transform:scale(1.02)}
+}
+
+/* Tablet: stage keeps its composition, slightly tighter. */
+@media(max-width:1180px){
+ .spot-index{gap:0 12px}
+ .spot-index button{grid-template-columns:auto minmax(0,1fr)}
+ .spot-index-thumb{display:none}
+}
+
+/* Phone and small tablet: a native carousel. Swipe, momentum and snapping belong to
+   the platform; the neighbours stay visible (peek) and recede so the active bottle leads. */
+@media(max-width:899px){
+ .spot-head{grid-template-columns:1fr}
+ .spot-head .text-link{grid-column:1;grid-row:auto;justify-self:start}
+ .spot-stage{height:auto}
+ .spot-rank{position:relative;top:auto;margin-bottom:10px}
+ .spot-rank-window{font-size:72px}
+ .spot-track{display:grid;grid-auto-flow:column;grid-auto-columns:84%;gap:14px;height:auto;margin-inline:calc(var(--gutter) * -1);padding-inline:var(--gutter);scroll-padding-inline:var(--gutter);overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none}
+ .spot-track::-webkit-scrollbar{display:none}
+ .spot-slide{position:relative;inset:auto;display:flex;flex-direction:column;visibility:visible;pointer-events:auto;scroll-snap-align:start;scroll-snap-stop:always;opacity:.42;transform:scale(.965);transform-origin:50% 40%;transition:opacity .35s ease,transform .45s var(--ease-out)}
+ .spot-slide.is-active{opacity:1;transform:none}
+ .spot-media{height:min(96vw,440px)}
+ .spot-media .product-image,.spot-slide .spot-info>*,.spot-slide .spot-name>span{opacity:1;transform:none;filter:none;transition:none}
+ .spot-light,.spot-floor{opacity:1}
+ .spot-info{padding:12px 2px 0}
+ .spot-name{font-size:clamp(30px,8.4vw,40px)}
+ .spot-price{margin-top:14px}
+ .spot-actions{margin-top:18px;flex-direction:column;align-items:stretch;gap:4px}
+ .spot-actions .button{min-width:0;width:100%}
+ .spot-actions .text-link{align-self:flex-start}
+ .spot-arrows{display:none}
+ /* Indicator: five segments, 44px tall for the thumb, a hairline each. */
+ .spot-index{grid-template-columns:repeat(5,1fr);gap:6px;margin-top:18px;border-top:0}
+ .spot-index button{display:block;min-height:44px;padding:0}
+ .spot-index-bar{top:50%;height:2px;background:#1b181326;transform:none;transition:background-color .35s ease}
+ .spot-index button[aria-current] .spot-index-bar{background:var(--text)}
+ .spot-index-no,.spot-index-thumb,.spot-index-name{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+}
+
+/* Modest devices: no blur, no pointer depth. Reduced motion: opacity only, no rolling. */
+html[data-motion=lite] .spot-media .product-image{filter:none}
+@media(prefers-reduced-motion:reduce){
+ .spot,.spot-rank-digits,.spot-slide,.spot-media .product-image,.spot-info>*,.spot-name>span,.spot-index-bar{transition-duration:.01s!important;transition-delay:0s!important}
+ .spot-media .product-image,.spot-info>*,.spot-name>span{transform:none!important;filter:none!important}
+ .spot-slide.is-active .spot-media .product-image,.spot-slide.is-active .spot-info>*{transition:opacity .25s ease!important}
+}

@@ -1,0 +1,109 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Brand intro — one continuous shot, ~1690ms, first landing on "/" per session.
+   0.00  ink. Light comes up on the bottle (campaign photo, shared with the hero)
+   0.38  a reflection travels across the glass
+   0.90  the atomizer fires: flash, spray cone, droplets drifting to the logo
+   1.18  SOLUNA condenses out of the mist (blur → focus), a gleam runs through it
+   2.05  the logo flies into the header slot while the veil lifts onto the hero
+   2.65  gone. Every layer animates transform/opacity only (filter on the logo).
+   Pure CSS so it runs before hydration; JS only handles skip and cleanup.
+   ───────────────────────────────────────────────────────────────────────── */
+.soluna-intro{display:none}
+html[data-intro=on]{--intro-offset:0ms}
+html[data-intro=on] .soluna-intro{display:block}
+
+
+.soluna-intro{
+ /* Geometry, desktop: nozzle, logo point, spray angle. See the per-breakpoint overrides. */
+ --sx:72vw;--sy:26svh;--spot-x:72%;--spot-y:48%;
+ --lx:31vw;--ly:50svh;--cone-a:159deg;--cone-len:min(46vw,620px);
+ --logo-n:176;--logo-h:calc(var(--logo-n) * 1px);--end-s:calc(var(--header-logo) / var(--logo-n));
+ --media-h:clamp(620px,100svh,940px);
+ position:fixed;inset:0;z-index:90;pointer-events:none;isolation:isolate;overflow:hidden;contain:strict;
+ animation:intro-life 1723ms linear both
+}
+@keyframes intro-life{99.9%{visibility:visible}100%{visibility:hidden}}
+.soluna-intro.is-leaving{opacity:0;transition:opacity 130ms var(--ease-out)}
+.soluna-intro>*{position:absolute}
+
+/* Ground + photograph (fade out together at the handoff, onto the identical hero). */
+.intro-ground{inset:0;background:var(--ink);animation:intro-out 260ms ease 1352ms both}
+.soluna-intro .intro-media{inset:0 0 auto;height:var(--media-h);z-index:0;animation:intro-photo 455ms ease 39ms both,intro-out 260ms ease 1352ms forwards}
+@keyframes intro-photo{from{opacity:0}}
+@keyframes intro-out{to{opacity:0}}
+
+/* Light coming up: a vignette anchored on the bottle lifts, so the glass lights first. */
+.intro-vignette{inset:0;background:radial-gradient(ellipse 26% 34% at var(--spot-x) var(--spot-y),#0d0c0a00 0%,#0d0c0aa6 55%,#0d0c0a 100%);animation:intro-vignette 747ms cubic-bezier(.65,0,.35,1) 78ms both}
+@keyframes intro-vignette{from{opacity:1}to{opacity:0}}
+
+/* A reflection passes across the glass once. */
+.intro-sweep{top:0;height:min(100svh,var(--media-h));left:0;width:28vw;background:linear-gradient(100deg,#fff0 0%,#fff3dc40 45%,#fffaf0a0 50%,#fff3dc40 55%,#fff0 100%);mix-blend-mode:screen;transform:translateX(38vw) skewX(-14deg);opacity:0;animation:intro-sweep 617ms cubic-bezier(.45,0,.2,1) 247ms both}
+@keyframes intro-sweep{0%{opacity:0;transform:translateX(38vw) skewX(-14deg)}25%{opacity:.8}75%{opacity:.6}100%{opacity:0;transform:translateX(96vw) skewX(-14deg)}}
+
+/* Veil: the logo needs a quiet ground; it lifts as the logo leaves. */
+.intro-veil{inset:0;background:#0d0c0a;opacity:0;animation:intro-veil-in 293ms ease 683ms forwards,intro-veil-out 260ms ease 1300ms forwards}
+@keyframes intro-veil-in{to{opacity:.62}}
+@keyframes intro-veil-out{from{opacity:.62}to{opacity:0}}
+
+/* The spray. Origin sits on the atomizer collar of the bottle in the photograph. */
+.intro-spray{left:var(--sx);top:var(--sy);width:0;height:0;z-index:2;animation:intro-out 195ms ease 1333ms forwards}
+.intro-spray>*{position:absolute;left:0;top:0}
+.intro-flash{width:120px;height:120px;margin:-60px 0 0 -60px;border-radius:50%;background:radial-gradient(circle,#fff8e8 0%,#f3d9a8a0 22%,#e8c38a00 62%);opacity:0;animation:intro-flash 273ms var(--ease-out) 572ms both}
+@keyframes intro-flash{0%{opacity:0;transform:scale(.2)}35%{opacity:.95}100%{opacity:0;transform:scale(1.25)}}
+.intro-cone{width:var(--cone-len);height:clamp(90px,14vmin,150px);margin-top:calc(clamp(90px,14vmin,150px) / -2);transform-origin:0 50%;background:radial-gradient(ellipse 60% 50% at 0% 50%,#f7e2b8b3 0%,#e9c58a55 35%,#e9c58a00 72%);opacity:0;transform:rotate(var(--cone-a)) scaleX(.05) scaleY(.5);animation:intro-cone 553ms var(--ease-out) 585ms both}
+@keyframes intro-cone{0%{opacity:0;transform:rotate(var(--cone-a)) scaleX(.05) scaleY(.5)}28%{opacity:.75}100%{opacity:0;transform:rotate(var(--cone-a)) scaleX(1) scaleY(1.35)}}
+.intro-drop{width:var(--s);height:var(--s);margin:calc(var(--s) / -2) 0 0 calc(var(--s) / -2);border-radius:50%;background:radial-gradient(circle at 35% 35%,#fffaf0,#f0d49e 55%,#c99a5a00 100%);box-shadow:0 0 6px #f6dca866;opacity:0;animation:intro-drop var(--d) cubic-bezier(.16,.84,.3,1) calc(598ms + var(--t)) both}
+.intro-drop.is-soft{background:radial-gradient(circle,#f5dcaa66 0%,#f5dcaa00 70%);box-shadow:none}
+@keyframes intro-drop{
+ 0%{opacity:0;transform:translate(0,0) scale(1)}
+ 12%{opacity:.95}
+ 50%{transform:translate(calc((var(--lx) - var(--sx)) * .5 + var(--bx)),calc((var(--ly) - var(--sy)) * .5 + var(--by))) scale(.9)}
+ 100%{opacity:0;transform:translate(calc(var(--lx) - var(--sx) + var(--ox)),calc(var(--ly) - var(--sy) + var(--oy))) scale(.35)}
+}
+
+/* Where the mist gathers, the logo appears. */
+.intro-bloom{left:var(--lx);top:var(--ly);width:min(70vw,720px);height:min(40vw,380px);margin:calc(min(40vw,380px) / -2) 0 0 calc(min(70vw,720px) / -2);z-index:2;background:radial-gradient(ellipse closest-side,#e7c28a3d,#e7c28a14 55%,#e7c28a00);opacity:0;animation:intro-bloom 715ms var(--ease-out) 715ms both}
+@keyframes intro-bloom{0%{opacity:0;transform:scale(.55)}40%{opacity:1}100%{opacity:0;transform:scale(1.25)}}
+
+/* Logo: laid out at its large size (scaling down stays crisp), then flown into the header. */
+.intro-logo{left:50%;top:0;z-index:3;height:var(--logo-h);aspect-ratio:720 / 453;transform:translate(-50%,-50%) translate(calc(var(--lx) - 50vw),var(--ly));animation:intro-fly 364ms var(--ease-in-out) 1333ms both;will-change:transform}
+@keyframes intro-fly{to{transform:translate(-50%,-50%) translate(0,calc(var(--header-h) / 2)) scale(var(--end-s))}}
+.intro-logo-mark{position:relative;width:100%;height:100%;opacity:0;animation:intro-condense 429ms var(--ease-out) 767ms both}
+.intro-logo-mark img{display:block;width:100%;height:100%}
+@keyframes intro-condense{from{opacity:0;filter:blur(14px);transform:scale(1.07)}to{opacity:1;filter:blur(0);transform:none}}
+.intro-gleam{position:absolute;inset:0;overflow:hidden;-webkit-mask:url('/soluna-logo-light.webp') center/100% 100% no-repeat;mask:url('/soluna-logo-light.webp') center/100% 100% no-repeat}
+.intro-gleam:before{content:'';position:absolute;top:0;bottom:0;left:0;width:45%;background:linear-gradient(100deg,#e9c27f00,#f2cf8ecc 45%,#fff6e0 50%,#f2cf8ecc 55%,#e9c27f00);transform:translateX(-110%);animation:intro-gleam 390ms cubic-bezier(.45,0,.2,1) 1073ms both}
+@keyframes intro-gleam{to{transform:translateX(240%)}}
+.intro-rule{position:absolute;left:50%;top:calc(100% + clamp(14px,2vh,22px));width:64px;height:1px;margin-left:-32px;background:linear-gradient(90deg,#d6b47a00,#d6b47a,#d6b47a00);transform:scaleX(0);animation:intro-rule 325ms var(--ease-out) 975ms both,intro-out 98ms ease 1274ms forwards}
+@keyframes intro-rule{to{transform:scaleX(1)}}
+
+/* Tablet: the bottle sits right of centre and higher; the logo moves off it. */
+@media(max-width:1100px){
+ .soluna-intro{--sx:72vw;--sy:26svh;--spot-y:46%;--lx:38vw;--ly:56svh;--cone-a:140deg;--cone-len:min(44vw,460px);--media-h:clamp(600px,100svh,860px)}
+}
+@media(max-width:1023px){
+ .soluna-intro{--logo-n:150}
+}
+
+/* Phone: the photo owns the top of the screen (same frame as the hero), the logo
+   settles just under it and the spray falls from the collar towards it. */
+@media(max-width:640px){
+ .soluna-intro{
+  --media-h:max(620px,calc(100svh - 72px));
+  --hs:min(calc(var(--media-h) * .58),440px);
+  --sx:68.5vw;--sy:calc(var(--hs) * .282);--spot-x:69%;--spot-y:calc(var(--hs) * .5);
+  --lx:50vw;--ly:calc(var(--hs) + 52px);--cone-a:100deg;--cone-len:calc(var(--hs) * .85);
+  --logo-n:124
+ }
+ .intro-vignette{background:radial-gradient(ellipse 48% 26% at var(--spot-x) var(--spot-y),#0d0c0a00 0%,#0d0c0aa6 55%,#0d0c0a 100%)}
+ .intro-sweep{width:40vw;height:var(--hs);-webkit-mask-image:linear-gradient(#000 70%,#0000);mask-image:linear-gradient(#000 70%,#0000)}
+ .intro-drop:nth-child(n+15):not(.is-soft),.intro-drop.is-soft:nth-child(odd){display:none}
+ .intro-bloom{width:92vw;height:52vw;margin:-26vw 0 0 -46vw}
+ @keyframes intro-condense{from{opacity:0;filter:blur(9px);transform:scale(1.06)}to{opacity:1;filter:blur(0);transform:none}}
+}
+@media(max-height:560px) and (min-width:641px){.soluna-intro{--logo-n:110}}
+
+/* Keep --media-h identical to the hero height at every size (see design.css responsive pass). */
+@media(max-height:560px) and (min-width:560px){.soluna-intro{--media-h:100svh;--ly:58svh}}
+@media(min-width:1800px){.soluna-intro{--media-h:clamp(620px,100svh,1180px)}}
+@media(prefers-reduced-motion:reduce){.soluna-intro{display:none!important}html[data-intro] .site-header-logo img{animation:none}}
