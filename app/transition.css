@@ -1,88 +1,96 @@
 /* ─────────────────────────────────────────────────────────────────────────────
-   Route transition — the Soluna signature moment (≈ 1s).
-   0.00 ink veil settles over the page (no white frame, ever)
-   0.12 the bottle rises into focus
-   0.25 splash at its base: two ripples on the wet surface, gold drops thrown in arcs;
-        a reflection crosses the glass
-   0.38 SOLUNA opens from its centre, inside the splash
-   0.68 when the next page has rendered: the scene dissolves forward, the veil lifts.
-   Everything is transform / opacity / clip-path; the scene is always mounted (no work
-   at click time) and is remounted per run only to restart its keyframes.
+   Route transition — "the section arrives before the page".
+   Click → the destination's own scene rises from the bottom (drawer curve), its title
+   lifts out of a mask → when the page has rendered, the panel lifts away upward.
+   Hombre / Mujer / Inicio: their campaign photograph (the same one their hero uses).
+   Más vendidos / Catálogo: a line of real bottles rising on ivory.
+   Transform / opacity / clip-path only; the panel exists only while it plays.
    ───────────────────────────────────────────────────────────────────────── */
-.rt{--w:clamp(200px,24vmin,300px);--k:1;position:fixed;inset:0;z-index:85;visibility:hidden;pointer-events:none;contain:strict}
-.rt[data-phase=play],.rt[data-phase=exit]{visibility:visible}
+.rt{position:fixed;inset:0;z-index:85;pointer-events:none;contain:strict}
 /* While it plays it absorbs clicks: no double navigation. */
 .rt[data-phase=play]{pointer-events:auto}
-.rt-veil{position:absolute;inset:0;background:radial-gradient(ellipse 60% 55% at 50% 52%,#1d1912 0%,#0d0c0a 62%);opacity:0}
-.rt[data-phase=play] .rt-veil{animation:rt-in .2s var(--ease-out) both}
-.rt[data-phase=exit] .rt-veil{animation:rt-out .32s var(--ease-in-out) 40ms both}
-@keyframes rt-in{from{opacity:0}to{opacity:1}}
-@keyframes rt-out{from{opacity:1}to{opacity:0}}
+.rt-panel{position:absolute;inset:0;overflow:hidden;background:var(--ink);color:var(--on-dark);clip-path:inset(100% 0 0 0)}
+.rt[data-phase=play] .rt-panel{animation:rt-rise .46s var(--ease-drawer) both}
+.rt[data-phase=exit] .rt-panel{clip-path:inset(0);animation:rt-lift .5s var(--ease-in-out) 60ms both}
+@keyframes rt-rise{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes rt-lift{from{clip-path:inset(0 0 0 0)}to{clip-path:inset(0 0 100% 0)}}
 
-.rt-stage{position:absolute;left:50%;top:50%;width:var(--w);display:grid;justify-items:center;transform:translate(-50%,-56%)}
-.rt[data-phase=exit] .rt-stage{animation:rt-stage-out .26s var(--ease-out) both}
-@keyframes rt-stage-out{to{opacity:0;transform:translate(-50%,-56%) scale(1.06)}}
+/* Scene: the destination's photograph settles as the panel rises. */
+.rt-scene{position:absolute;inset:0}
+.rt-scene img{width:100%;height:100%;object-fit:cover;object-position:70% 40%}
+.rt[data-dest=home] .rt-scene img{object-position:62% 22%}
+.rt-scene:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#0d0c0af0 0%,#0d0c0aa6 40%,#0d0c0a26 78%),linear-gradient(0deg,#0d0c0ae6,#0d0c0a00 50%)}
+.rt[data-phase=play] .rt-scene img{animation:rt-settle 1s var(--ease-out) both}
+@keyframes rt-settle{from{transform:scale(1.1) translateY(2%)}}
 
-/* Warm light behind the glass; breathes only if the page takes longer than the moment. */
-.rt-glow{position:absolute;left:50%;top:42%;width:calc(var(--w) * 2.3);aspect-ratio:1;margin:calc(var(--w) * -1.15) 0 0 calc(var(--w) * -1.15);border-radius:50%;background:radial-gradient(closest-side,#cfab7247,#cfab7212 55%,#cfab7200);opacity:0}
-.rt[data-phase=play] .rt-glow{animation:rt-glow .6s var(--ease-out) .15s both,rt-breathe 1.8s ease-in-out 1.1s infinite alternate}
-@keyframes rt-glow{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
-@keyframes rt-breathe{to{opacity:.7;transform:scale(1.06)}}
+/* Lineup: real bottles on ivory, rising one after another. */
+.rt[data-kind=lineup] .rt-panel{background:var(--paper);color:var(--text)}
+/* The blend sits on the row itself: each bottle animates (its own group), so multiply on
+   the bottles would blend against nothing and show their white backgrounds. */
+.rt-lineup{position:absolute;left:0;right:0;top:19%;display:flex;align-items:flex-end;justify-content:center;gap:clamp(4px,1.6vw,28px);padding-inline:var(--gutter);mix-blend-mode:multiply}
+.rt-lineup:after{content:'';position:absolute;left:var(--gutter);right:var(--gutter);bottom:-1px;height:1px;background:linear-gradient(90deg,#1b181300,#1b181326 20%,#1b181326 80%,#1b181300)}
+.rt-item{position:relative;flex:0 1 clamp(110px,17vw,260px);aspect-ratio:1}
+.rt-item:nth-child(3){flex-basis:clamp(130px,20vw,300px)}
+.rt-item .product-image{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;padding:0;background:transparent}
+.rt-item img{object-fit:contain;object-position:50% 100%;filter:brightness(1.035) contrast(1.02)}
+.rt[data-phase=play] .rt-item{animation:rt-item .6s var(--ease-out) calc(90ms + var(--i) * 45ms) both}
+@keyframes rt-item{from{opacity:0;transform:translateY(26%)}}
 
-/* The bottle: the campaign photograph, its edges dissolved into the ink. */
-.rt-bottle{position:relative;width:var(--w);aspect-ratio:480 / 570;-webkit-mask-image:radial-gradient(ellipse 52% 50% at 50% 47%,#000 58%,#0000 100%);mask-image:radial-gradient(ellipse 52% 50% at 50% 47%,#000 58%,#0000 100%)}
-.rt-bottle img{display:block;width:100%;height:100%}
-.rt[data-phase=play] .rt-bottle{animation:rt-bottle .44s var(--ease-out) .12s both}
-@keyframes rt-bottle{from{opacity:0;transform:translateY(18px) scale(.9);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
-.rt-sheen{position:absolute;inset:0;background:linear-gradient(104deg,#fff0 34%,#fff4dc8c 50%,#fff0 66%);mix-blend-mode:screen;transform:translateX(-120%)}
-.rt[data-phase=play] .rt-sheen{animation:rt-sheen .52s cubic-bezier(.45,0,.2,1) .3s both}
-@keyframes rt-sheen{to{transform:translateX(120%)}}
+/* Copy: small mark, kicker with a drawn hairline, the title out of its mask, the count. */
+.rt-copy{position:absolute;left:0;right:0;bottom:0;max-width:var(--max);margin:0 auto;padding:0 var(--gutter) clamp(34px,7vh,76px)}
+.rt-mark{display:block;width:clamp(78px,7vw,96px);height:auto;margin-bottom:clamp(14px,2.4vh,24px)}
+.rt[data-kind=lineup] .rt-mark{filter:brightness(.16)}
+.rt-kicker{display:flex;align-items:center;gap:12px;font:600 11px/1.3 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:#d8c29c}
+.rt-kicker:before{content:'';width:32px;height:1px;background:currentColor;transform-origin:left}
+.rt[data-kind=lineup] .rt-kicker{color:var(--gold-ink)}
+.rt-title{display:block;overflow:hidden;margin-top:12px;padding-bottom:.06em;font:350 clamp(48px,7vw,108px)/1 var(--serif);letter-spacing:-.035em}
+.rt-title>span{display:block}
+.rt-title em{font-style:italic;font-weight:300;color:var(--gold-2)}
+.rt[data-dest=her] .rt-title em{color:#f3b3a5}
+.rt[data-kind=lineup] .rt-title em{color:var(--gold-ink)}
+.rt-count{display:block;margin-top:14px;font:500 13px/1 var(--sans);letter-spacing:.04em;color:var(--on-dark-2)}
+.rt[data-kind=lineup] .rt-count{color:var(--text-2)}
+.rt[data-phase=play] .rt-mark{animation:rt-fade .4s ease .1s both}
+.rt[data-phase=play] .rt-kicker:before{animation:rt-line .5s var(--ease-out) .14s both}
+.rt[data-phase=play] .rt-kicker{animation:rt-fade .4s ease .14s both}
+.rt[data-phase=play] .rt-title>span{animation:rt-mask .64s var(--ease-out) .16s both}
+.rt[data-phase=play] .rt-count{animation:rt-fade .4s ease .3s both}
+@keyframes rt-fade{from{opacity:0}}
+@keyframes rt-line{from{transform:scaleX(0)}}
+@keyframes rt-mask{from{transform:translateY(105%)}}
+/* Leaving: the copy and the bottles go first, then the panel lifts. */
+.rt[data-phase=exit] .rt-copy,.rt[data-phase=exit] .rt-lineup{animation:rt-copy-out .24s var(--ease-out) both}
+@keyframes rt-copy-out{to{opacity:0;transform:translateY(-12px)}}
 
-/* Splash from the base of the bottle (≈ 84% of its height). */
-.rt-splash{position:absolute;left:50%;top:var(--w);width:0;height:0}
-.rt-ring{position:absolute;left:calc(var(--w) * -.58);top:calc(var(--w) * -.1);width:calc(var(--w) * 1.16);height:calc(var(--w) * .2);border:1px solid #ecd3a5b3;border-radius:50%;opacity:0}
-.rt-ring-late{border-color:#ecd3a566}
-.rt[data-phase=play] .rt-ring{animation:rt-ring .62s var(--ease-out) .26s both}
-.rt[data-phase=play] .rt-ring-late{animation-delay:.36s}
-@keyframes rt-ring{0%{opacity:.85;transform:scale(.22)}100%{opacity:0;transform:scale(1.75)}}
-.rt-splash i{position:absolute;left:0;top:0;width:var(--size);height:var(--size);margin:calc(var(--size) / -2) 0 0 calc(var(--size) / -2);border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff8e8,#e7c587 55%,#b98a4f33);box-shadow:0 0 6px #f0d2a073;opacity:0}
-.rt[data-phase=play] .rt-splash i{animation:rt-drop .56s cubic-bezier(.2,.6,.35,1) calc(250ms + var(--delay)) both}
-@keyframes rt-drop{
- 0%{opacity:0;transform:translate(0,0) scale(.6)}
- 14%{opacity:1}
- 55%{opacity:1;transform:translate(calc(var(--x) * var(--k) * .72),calc(var(--peak) * var(--k))) scale(1)}
- 100%{opacity:0;transform:translate(calc(var(--x) * var(--k)),calc(var(--land) * var(--k))) scale(.7)}
-}
-
-/* SOLUNA opens from its centre inside the splash. */
-.rt-logo{position:relative;width:calc(var(--w) * .86);height:auto;margin-top:calc(var(--w) * -.08);opacity:0}
-.rt[data-phase=play] .rt-logo{animation:rt-logo .36s var(--ease-out) .38s both}
-@keyframes rt-logo{from{opacity:0;clip-path:inset(0 50% 0 50%);filter:blur(8px);transform:translateY(6px)}to{opacity:1;clip-path:inset(0 0 0 0);filter:none;transform:none}}
-
-/* Phones, portrait: the bottle takes a larger share of the width, the splash stays
-   inside the screen, fewer drops. */
+/* Phones: portrait composition — photograph framed on the bottle, three bottles in the
+   lineup (larger), title sized to the width. */
 @media(max-width:640px){
- .rt{--w:min(54vw,230px);--k:.82}
- .rt-stage{transform:translate(-50%,-54%)}
- @keyframes rt-stage-out{to{opacity:0;transform:translate(-50%,-54%) scale(1.05)}}
- .rt-splash i:nth-of-type(n+9){display:none}
+ .rt-scene img{object-position:78% 30%}
+ .rt[data-dest=home] .rt-scene img{object-position:74% 40%}
+ .rt-scene:after{background:linear-gradient(180deg,#0d0c0a33 0%,#0d0c0a00 30%,#0d0c0ab3 58%,#0d0c0af2 78%)}
+ .rt-lineup{top:30svh;gap:2px}
+ .rt-item,.rt-item:nth-child(3){flex-basis:31vw}
+ .rt-item:nth-child(3){flex-basis:36vw}
+ .rt-item:first-child,.rt-item:last-child{display:none}
+ .rt-title{font-size:clamp(42px,12.5vw,58px)}
+ .rt-copy{padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
 }
-/* Short landscape screens: sized by height. */
+/* Short landscape screens. */
 @media(max-height:520px){
- .rt{--w:min(36vh,190px);--k:.7}
+ .rt-lineup{top:8%}
+ .rt-item{flex-basis:min(17vw,30vh)}
+ .rt-item:nth-child(3){flex-basis:min(20vw,36vh)}
+ .rt-title{font-size:clamp(34px,11vh,56px)}
+ .rt-mark{display:none}
 }
-/* Modest devices: no blur, no blended sheen, fewer drops. */
-html[data-motion=lite] .rt-sheen,html[data-motion=lite] .rt-splash i:nth-of-type(n+7){display:none}
-html[data-motion=lite] .rt[data-phase=play] .rt-bottle{animation-name:rt-bottle-lite}
-html[data-motion=lite] .rt[data-phase=play] .rt-logo{animation-name:rt-logo-lite}
-@keyframes rt-bottle-lite{from{opacity:0;transform:translateY(18px) scale(.9)}to{opacity:1;transform:none}}
-@keyframes rt-logo-lite{from{opacity:0;clip-path:inset(0 50% 0 50%)}to{opacity:1;clip-path:inset(0 0 0 0)}}
+/* Modest devices: no settling zoom on the photograph. */
+html[data-motion=lite] .rt[data-phase=play] .rt-scene img{animation:none}
 
-/* Reduced motion: the same beat told as a still — veil, bottle and logo fade in and out. */
+/* Reduced motion: the same states as a short cross-fade, nothing moves. */
 @media(prefers-reduced-motion:reduce){
- .rt-splash,.rt-sheen{display:none}
- .rt[data-phase=play] .rt-bottle,.rt[data-phase=play] .rt-logo,.rt[data-phase=play] .rt-glow{animation:rt-in .16s ease both}
- .rt[data-phase=play] .rt-veil{animation-duration:.16s}
- .rt[data-phase=exit] .rt-stage{animation:rt-out .2s ease both}
- .rt[data-phase=exit] .rt-veil{animation:rt-out .22s ease both}
+ .rt-panel,.rt[data-phase=play] .rt-panel{clip-path:none}
+ .rt[data-phase=play] .rt-panel{animation:rt-fade .16s ease both}
+ .rt[data-phase=exit] .rt-panel{clip-path:none;animation:rt-out .22s ease both}
+ .rt[data-phase=play] .rt-panel *,.rt[data-phase=exit] .rt-copy,.rt[data-phase=exit] .rt-lineup{animation:none!important}
+ @keyframes rt-out{to{opacity:0}}
 }

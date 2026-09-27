@@ -1,8 +1,8 @@
 .catalog-brand-navigation{margin:26px 0 6px;padding-block:16px;border-block:1px solid #e9e2d6}
 .catalog-brand-navigation>span{display:block;margin-bottom:12px;font-size:10px;letter-spacing:1.7px;text-transform:uppercase;color:#7e6a4e}
-.catalog-brand-links{display:flex;align-items:center;gap:8px;overflow-x:auto;padding:2px 2px 10px;scrollbar-width:thin;scrollbar-color:#d1b997 transparent}
-.catalog-brand-links a{flex-shrink:0;padding:10px 15px;min-height:40px;border:1px solid #e1d8c9;border-radius:2px;color:#635746;font-size:12px;line-height:1.5;background:#fdfbf7;transition:background .2s,border-color .2s}
-.catalog-brand-links a:hover,.catalog-brand-links a.is-active{background:#eee4d3;border-color:#bea279;color:#574022}
+
+
+
 .catalog-toolbar{gap:16px;align-items:center}
 .catalog-toolbar>p{margin-right:auto;white-space:normal}
 .catalog-toolbar .collection-search{flex:1;max-width:360px;min-width:220px;width:auto;margin:0}
@@ -33,7 +33,7 @@
 .catalog-toolbar .collection-search{max-width:none}
 .catalog-toolbar>p{flex:1 1 100%}}
 @media(max-width:640px){.catalog-brand-navigation{margin-top:20px;padding-block:12px}
-.catalog-brand-links a{font-size:12px;min-height:42px;padding-inline:13px}
+
 .catalog-toolbar{gap:14px 10px;padding-block:14px}
 .catalog-toolbar .collection-search{flex:1 1 100%;min-width:0;width:100%;max-width:100%}
 .catalog-sort{flex:1;min-width:0}
@@ -47,4 +47,4 @@
 @media(max-width:360px){.all-catalog .filtered-products,.collection-page.bestsellers-showcase .filtered-products{grid-template-columns:1fr}
 .all-catalog .product h3{min-height:0;font-size:19px}
 .all-catalog .product{padding:20px}}
-@media(prefers-reduced-motion:reduce){.catalog-brand-links a{transition:none}}
+@media(prefers-reduced-motion:reduce){}

@@ -77,10 +77,6 @@ html[data-intro-wait] .soluna-intro,html[data-intro-wait] .soluna-intro *{animat
 .catalog-categories a[data-pending]:after{transform:scaleX(1);transform-origin:left}
 .catalog-categories[data-has-pending] a[aria-current]:not([data-pending]){color:var(--text-3)}
 .catalog-categories[data-has-pending] a[aria-current]:not([data-pending]):after{transform:scaleX(0);transform-origin:right}
-.catalog-brand-links a[data-pending]{background:var(--ink);border-color:var(--ink);color:var(--on-dark)}
-.catalog-brand-links a[data-pending] small{color:var(--on-dark-3)}
-.catalog-brand-links[data-has-pending] a[aria-current]:not([data-pending]){background:transparent;border-color:var(--line);color:var(--text-2)}
-.catalog-brand-links[data-has-pending] a[aria-current]:not([data-pending]) small{color:var(--text-3)}
 @media(prefers-reduced-motion:no-preference){
  html[data-navigated] .page-hero-media img{animation:section-scene .45s ease both!important}
  html[data-navigated] .page-hero-inner>*{animation:section-rise .38s var(--ease-out) both!important;animation-delay:var(--q,0ms)!important}

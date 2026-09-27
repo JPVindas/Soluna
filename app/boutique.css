@@ -1,6 +1,3 @@
-.catalog-brand-links button{flex-shrink:0;padding:10px 15px;min-height:44px;border:1px solid #dfd5c6;border-radius:2px;color:#635746;font-size:13px;line-height:1.5;background:#fdfbf7}
-.catalog-brand-links button:hover{background:#f0e9dd;border-color:#baa380;color:#493a24}
-.catalog-brand-links button[aria-pressed=true]{background:#292e28;border-color:#292e28;color:#fff}
 .section-title:after{display:none}
 .collection-kicker>span{display:none}
 .home-bestsellers .catalog-heading>.collection-kicker{display:none}

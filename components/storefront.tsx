@@ -91,6 +91,7 @@ import {
 import { useScrollReveal } from '@/lib/use-scroll-reveal';
 import { usePointerDepth } from '@/lib/use-pointer-depth';
 import { SiteNavigation } from '@/components/site-navigation';
+import { ScrollStrip } from '@/components/scroll-strip';
 import { startNavigation } from '@/components/route-transition';
 import { CatalogSort } from '@/components/catalog-sort';
 
@@ -456,7 +457,7 @@ export default function Storefront({
 
   function browse(value: string) {
     setSearchOpen(false);
-    if ((paths[value] ?? '/perfumes') !== location.pathname) startNavigation();
+    if ((paths[value] ?? '/perfumes') !== location.pathname) startNavigation('splash', paths[value] ?? '/perfumes');
     router.push(paths[value] ?? '/perfumes');
   }
 
@@ -851,7 +852,7 @@ export default function Storefront({
               </div>
               <div className="catalog-nav-row">
                 <span className="catalog-nav-label">{t('Explora por marca', 'Explore by brand')}</span>
-                <div className="catalog-brand-links" data-has-pending={pendingIn('brand') ? true : undefined}>
+                <ScrollStrip className="catalog-brand-links" label={t('Marcas', 'Brands')} data-has-pending={pendingIn('brand') ? true : undefined}>
                   <Link href={paths[category]} scroll={false} aria-current={!activeBrand ? 'true' : undefined} data-pending={pendingIn('brand') === paths[category] ? true : undefined} onClick={() => press('brand', paths[category], !activeBrand)}>
                     {t('Todas', 'All')}
                     <small>{scope.length}</small>
@@ -869,7 +870,7 @@ export default function Storefront({
                       <small>{scope.filter((p) => p.brand === brand).length}</small>
                     </Link>
                   ))}
-                </div>
+                </ScrollStrip>
               </div>
             </nav>
           )}
@@ -1444,7 +1445,7 @@ export default function Storefront({
               e.preventDefault();
 
               setSearchOpen(false);
-              if (location.pathname !== '/perfumes') startNavigation();
+              if (location.pathname !== '/perfumes') startNavigation('splash', '/perfumes');
 
               router.push(
                 '/perfumes?q=' +

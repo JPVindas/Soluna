@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { usePathname } from 'next/navigation';
 import { ResponsiveImage } from './responsive-image';
+import { useLanguage } from './language-provider';
 
 // Total length of the CSS timeline in app/intro.css (keep in sync).
 const INTRO_MS = 1723;
@@ -30,7 +31,15 @@ const droplets = Array.from({ length: 22 }, (_, i) => ({
   soft: i >= 17,
 }));
 
+// The wet stone under the bottle answers the atomizer: drops leap from the base in arcs.
+// [x px, peak y px, landing y px, size px, delay ms]
+const baseDrops: [number, number, number, number, number][] = [
+  [-120, -96, -18, 5, 0], [-84, -150, -60, 4, 40], [-46, -186, -104, 5, 20], [-16, -130, -84, 3, 70],
+  [22, -176, -120, 4, 30], [58, -140, -70, 5, 60], [94, -118, -34, 4, 10], [132, -80, 4, 3, 50],
+];
+
 export function PerfumeIntro() {
+  const { t } = useLanguage();
   const pathname = usePathname();
   // Decided once: the intro belongs to the first landing on the home page only.
   const [active, setActive] = useState(pathname === '/');
@@ -112,6 +121,13 @@ export function PerfumeIntro() {
           />
         ))}
       </div>
+      <div className="intro-base">
+        <span className="intro-ripple" />
+        <span className="intro-ripple is-late" />
+        {baseDrops.map(([x, peak, land, size, delay], i) => (
+          <i key={i} style={{ '--x': `${x}px`, '--peak': `${peak}px`, '--land': `${land}px`, '--size': `${size}px`, '--delay': `${delay}ms` } as CSSProperties} />
+        ))}
+      </div>
       <div className="intro-bloom" />
       <div className="intro-logo">
         <div className="intro-logo-mark">
@@ -119,6 +135,7 @@ export function PerfumeIntro() {
           <span className="intro-gleam" />
         </div>
         <span className="intro-rule" />
+        <span className="intro-tagline">{t('Fragancias que dejan huella', 'Fragrances that leave an impression')}</span>
       </div>
     </div>
   );

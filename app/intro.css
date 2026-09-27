@@ -103,6 +103,28 @@ html[data-intro=on] .soluna-intro{display:block}
 }
 @media(max-height:560px) and (min-width:641px){.soluna-intro{--logo-n:110}}
 
+/* The wet stone answers the atomizer: two ripples and a crown of drops at the bottle's base
+   (≈ 80% of the photograph's height, under the nozzle), in time with the flash. */
+.soluna-intro{--base-x:var(--sx);--base-y:calc(var(--media-h) * .8)}
+.intro-base{left:var(--base-x);top:var(--base-y);width:0;height:0;z-index:2;animation:intro-out 195ms ease 1333ms forwards}
+.intro-base>*{position:absolute;left:0;top:0}
+.intro-ripple{width:clamp(180px,22vw,340px);height:clamp(30px,3.6vw,56px);margin:calc(clamp(30px,3.6vw,56px) / -2) 0 0 calc(clamp(180px,22vw,340px) / -2);border:1px solid #ecd3a5b3;border-radius:50%;opacity:0;animation:intro-ripple 620ms var(--ease-out) 590ms both}
+.intro-ripple.is-late{border-color:#ecd3a566;animation-delay:670ms}
+@keyframes intro-ripple{0%{opacity:.9;transform:scale(.2)}100%{opacity:0;transform:scale(1.6)}}
+.intro-base i{width:var(--size);height:var(--size);margin:calc(var(--size) / -2) 0 0 calc(var(--size) / -2);border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff8e8,#e7c587 55%,#b98a4f33);box-shadow:0 0 6px #f0d2a073;opacity:0;animation:intro-leap 520ms cubic-bezier(.2,.6,.35,1) calc(600ms + var(--delay)) both}
+@keyframes intro-leap{0%{opacity:0;transform:translate(0,0) scale(.6)}14%{opacity:1}55%{opacity:1;transform:translate(calc(var(--x) * .72),var(--peak)) scale(1)}100%{opacity:0;transform:translate(var(--x),var(--land)) scale(.7)}}
+/* A line of voice under the logo; it leaves before the logo flies to the header. */
+.intro-tagline{position:absolute;left:50%;top:calc(100% + clamp(36px,5vh,54px));transform:translateX(-50%);white-space:nowrap;font:500 12px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:#e7d3ae;opacity:0;animation:intro-tag 420ms var(--ease-out) 940ms both,intro-out 110ms ease 1230ms forwards}
+@keyframes intro-tag{from{opacity:0;letter-spacing:.62em}to{opacity:.88;letter-spacing:.3em}}
+@media(max-width:640px){
+ .soluna-intro{--base-y:calc(var(--hs) * .8)}
+ .intro-ripple{width:46vw;height:9vw;margin:-4.5vw 0 0 -23vw}
+ .intro-base i:nth-child(n+8){display:none}
+ .intro-tagline{font-size:10.5px;letter-spacing:.24em}
+ @keyframes intro-tag{from{opacity:0;letter-spacing:.5em}to{opacity:.88;letter-spacing:.24em}}
+}
+html[data-motion=lite] .intro-base i:nth-child(even){display:none}
+
 /* Keep --media-h identical to the hero height at every size (see design.css responsive pass). */
 @media(max-height:560px) and (min-width:560px){.soluna-intro{--media-h:100svh;--ly:58svh}}
 @media(min-width:1800px){.soluna-intro{--media-h:clamp(620px,100svh,1180px)}}
